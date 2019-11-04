@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+body {
+    background: url(../img/page_bg.png) center top / 100% 100% no-repeat;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.list_cont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8.55rem;
+    height: 4.4rem;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.list_cont .list_title {
+    color: #fff;
+    text-align: center;
+    font-size: 0.25rem;
+    margin-bottom: 0.2rem;
+}
+
+.list_cont .list3d .list3d_item {
+    float: left;
+    width: 1.5rem;
+    height: auto;
+    overflow: hidden;
+    border-radius: 0.03rem;
+    border: 0.02rem solid #fff;
+    transition: all 0.2s ease-out 0s;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+
+.list_cont .list3d .list3d_item:not(:nth-child(5n+1)) {
+    margin-left: 0.25rem;
+}
+
+.list_cont .list3d .list3d_item:nth-child(n+6) {
+    margin-top: 0.25rem;
+}
+
+.list_cont .list3d .list3d_item .img {
+    width: 1.5rem;
+    height: 1.5rem;
+    overflow: hidden;
+}
+
+.list_cont .list3d .list3d_item .img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.list_cont .list3d .list3d_item .title {
+    font-size: 0.12rem;
+    line-height: 0.25rem;
+    color: #333;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modal3d {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal3d iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.modal3d .title {
+    position: absolute;
+    top: 0.5rem;
+    text-align: center;
+    font-size: 0.25rem;
+    color: #fff;
+    width: 100%;
+}
+
+.modal3d .icon {
+    position: absolute;
+    bottom: 0.3rem;
+    height: 0.47rem;
+    z-index: 10001;
+}
+
+.modal3d .icon.close {
+    width: 0.47rem;
+    left: 50%;
+    margin-left: -0.235rem;
+    background: url('../img/close.png') center center / 100% 100% no-repeat;
+    cursor: pointer;
+}
+
+.modal3d .icon.brand {
+    width: 1.2875rem;
+    right: 1rem;
+    background: url('../img/3d.png') center center / 100% 100% no-repeat;
+}

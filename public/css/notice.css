@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+body {
+    background: url(../img/page_bg.png) center top / 100% 100% no-repeat;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+#contWrap {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 80% !important;
+    height: 90% !important;
+    border-radius: 0.06rem;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    background-color: #C8A063;
+}
+
+
+.notice {
+    padding: 0.3rem;
+    color: #C8A063;
+    text-align: center;
+}
+
+.notice .title {
+    font-size: 0.17rem;
+    color: #65420B;
+}
+
+.notice .content {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    /*IE*/
+}
+
+.notice .content /deep/ * {
+    font-size: 0.15rem;
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+.notice .content /deep/ p br {
+    font-size: 0;
+}

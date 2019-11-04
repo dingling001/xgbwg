@@ -1,0 +1,247 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "微软雅黑";
+    /*移除默认点击高亮*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+    -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+    -o-tap-highlight-color: rgba(0, 0, 0, 0);
+    tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    padding-top: constant(safe-area-inset-top);
+    padding-left: constant(safe-area-inset-left);
+    padding-right: constant(safe-area-inset-right);
+    /*padding-bottom: constant(safe-area-inset-bottom);*/
+}
+
+
+[v-cloak] {
+    display: none !important;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    background: url('../img/bg_wx.png') top center / 100% 100% no-repeat;
+}
+
+.main .h5_wrap {
+    position: fixed;
+    top: 1.875rem;
+    width: 100%;
+    height: 100%;
+    padding: 0 1.875rem 6.5rem;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    z-index: 10000;
+}
+
+.main .h5_wrap .img {
+    width: 100%;
+    height: auto;
+}
+
+.main .h5_wrap .img img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.swiper-container {
+    height: 100%;
+}
+
+.swiper-container .swiper-pagination {
+    bottom: 5px;
+    font-size: 0;
+}
+
+.swiper-container .swiper-pagination .swiper-pagination-bullet {
+    width: 0.3125rem;
+    height: 0.3125rem;
+    display: inline-block;
+    background: #FFB95F;
+    border-radius: 0.3125rem;
+    transition: width 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.swiper-container .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    width: 0.9375rem;
+    height: 0.3125rem;
+}
+
+.main .h5_wrap .title {
+    width: 100%;
+    height: auto;
+    margin: 0.9375rem 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    text-align: center;
+    color: #FFB95F;
+}
+
+
+.main .h5_wrap .intro p {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    color: #ffb95f;
+    word-wrap: break-word;
+}
+
+.main .audio {
+    width: 100%;
+    height: 4.375rem;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 999999;
+    border-top: 0.01rem solid #FFB95F;
+    background-color: #AF6B1B;
+}
+
+/*音频样式*/
+.mod_audio,
+.mod_audio * {
+    box-sizing: border-box;
+    transition: none;
+}
+
+.mod_audio {
+    width: 100%;
+    height: 2.5rem;
+    padding-left: 8.125rem;
+    padding-right: 5.625rem;
+    position: relative;
+}
+
+/*播放-暂停按钮*/
+.ctrl_play,
+.ctrl_pause {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 0;
+    left: 1.25rem;
+    border-radius: 50%;
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url('../img/btn_play_h5.png');
+    transition: all 0.2s ease-out 0s;
+}
+
+.ctrl_play {
+    background-image: url('../img/btn_play_h5.png');
+}
+
+.ctrl_pause {
+    display: none;
+    background-image: url('../img/btn_pause_h5.png');
+}
+
+/*模拟进度条*/
+.ctrl_prog {
+    width: 100%;
+    height: 0.1875rem;
+    position: relative;
+    top: 1.125rem;
+    border-radius: 0.125rem;
+    background-color: #ffffff;
+}
+
+.prog_line {
+    width: 0%;
+    height: 0.1875rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 0.2rem;
+    background: linear-gradient(0deg, rgba(255, 204, 58, 1), rgba(244, 157, 46, 1), rgba(142, 94, 0, 1));
+    box-shadow: 0px 0.1875rem 0.1875rem 0px rgba(0, 0, 0, 0.5);
+    border-radius: 0.25rem;
+}
+
+/*点*/
+.prog_line:after {
+    display: block;
+    content: " ";
+    width: 0.875rem;
+    height: 0.875rem;
+    position: absolute;
+    top: -0.3125rem;
+    right: -0.625rem;
+    /*background: #670006;*/
+    /*border-radius: 50%;*/
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url('../img/audio_point_h5.png');
+}
+
+/*序号、计时*/
+.prog_current,
+.prog_duration {
+    display: block;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: -1.125rem;
+    font-size: 0.9375rem;
+    line-height: 2.5rem;
+    color: #FFB95F;
+}
+
+.prog_current {
+    left: -3.125rem;
+}
+
+.prog_duration {
+    right: -3.125rem;
+}
+
+/*隐藏真实进度条*/
+input.prog_line_hide[type="range"] {
+    display: block;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 0.3125rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: none;
+    border-radius: 0.125rem;
+    outline: none;
+    opacity: 0;
+    -webkit-opacity: 0;
+    cursor: pointer;
+}
+
+/*进度条滑块*/
+input.prog_line_hide[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0.9375rem;
+    height: 0.9375rem;
+    border-radius: 50%;
+    /*background-color: #f00;*/
+    background: none;
+}

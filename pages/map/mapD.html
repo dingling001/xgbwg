@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <title>地图导览 - 嘉善博物馆</title>
+    <link href="../../public/lib/leaflet/leaflet.css" type="text/css" rel="stylesheet" />
+    <link href="../../public/lib/swiper/swiper.min.css" type="text/css" rel="stylesheet" />
+    <link href="../../public/lib/animate.css" type="text/css" rel="stylesheet" />
+    <link href="../../public/css/common.css" type="text/css" rel="stylesheet" />
+    <link href="../../public/css/mapD.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main" id="main" v-cloak>
+        <div class="hall_title">
+            <h2>{{info.title}}</h2>
+            <div class="sub">
+                <p>{{info.vice_title}}</p>
+                <p>{{info.map_name}}&nbsp;&nbsp;{{info.exhibit_count}}件展品</p>
+            </div>
+        </div>
+        <div class="inner">
+            <!-- 左侧部分 -->
+            <div class="map" id="map"></div>
+        </div>
+        <!-- 时间 -->
+        <div class="commonEle">
+            <div class="topright">
+                <div class="c1" id="time1"></div>
+            </div>
+        </div>
+        <a href="javascript:history.go(-1)" id="btn_back"></a>
+    </div>
+</body>
+<script src="../../public/lib/vue.min.2.2.2.js"></script>
+<script src="../../public/lib/jquery.min.3.3.1.js"></script>
+<script src="../../public/lib/leaflet/leaflet.js"></script>
+<script src="../../public/lib/swiper/swiper.min.js"></script>
+<script src="../../public/js/common.js"></script>
+<script src="../../public/js/mapD.js"></script>
+
+</html>

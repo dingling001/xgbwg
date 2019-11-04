@@ -1,0 +1,291 @@
+@charset "utf-8";
+
+body {
+    background: url(../img/page_bg.png) center top / 100% 100% no-repeat;
+}
+
+.swiper-container {
+    height: 100%;
+}
+
+.swiper-wrapper {
+    height: 100%;
+}
+
+.swiper-container .swiper-pagination {
+    bottom: 0;
+    width: 100%;
+    font-size: 0;
+}
+
+.swiper-container .swiper-pagination .swiper-pagination-bullet {
+    width: 5px;
+    height: 5px;
+    display: inline-block;
+    background: #C8A063;
+    border-radius: 5px;
+    transition: width 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.swiper-container .swiper-pagination .swiper-pagination-bullet+.swiper-pagination-bullet {
+    margin-left: 5px;
+}
+
+.swiper-container .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    width: 25px;
+    height: 5px;
+}
+
+.swiper-button-prev {
+    left: -0.5rem;
+    width: 0.38rem;
+    height: 0.38rem;
+    background-image: url('../img/btn_swiper_prev.png');
+    background-size: 100% 100%;
+}
+
+.swiper-button-next {
+    right: -0.5rem;
+    width: 0.38rem;
+    height: 0.38rem;
+    background-image: url('../img/btn_swiper_next.png');
+    background-size: 100% 100%;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.hall_title {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.3rem;
+    color: #FFFFFF;
+    width: 1.7rem;
+    word-wrap: break-word;
+}
+
+.hall_title h2 {
+    font-size: 0.27rem;
+}
+
+.hall_title .sub p {
+    font-size: 0.17rem;
+    line-height: 1.6;
+}
+
+.inner {
+    width: 7.0rem;
+    height: 4.5rem;
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+
+/*点位样式*/
+.my-exhibits {
+    width: 0 !important;
+    height: 0 !important;
+    margin-left: auto !important;
+    margin-top: auto !important;
+    position: relative;
+}
+
+.my-exhibits .cell {
+    width: 0.4rem;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: -0.2rem;
+    cursor: pointer;
+}
+
+.my-exhibits .cell .cell_icon {
+    position: relative;
+    width: 0.4rem;
+    height: 0.5rem;
+}
+
+.my-exhibits .cell .cell_icon.markerbg_1 {
+    background: url('../img/bg_marker1.png') top center / 100% 100% no-repeat;
+}
+
+.my-exhibits .cell .cell_icon.markerbg_1 img {
+    display: block;
+    width: 0.28rem;
+    height: 0.28rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.05rem;
+    left: 50%;
+    margin-left: -0.14rem;
+    vertical-align: middle;
+}
+
+.my-exhibits .cell .cell_icon.markerbg_2 {
+    width: 0.44rem;
+    height: 0.6rem;
+    font-size: 0;
+    background: url('../img/bg_marker.png') top center / 100% 100% no-repeat;
+}
+
+.my-exhibits .cell .cell_icon.markerbg_2 span {
+    font-size: 0.2rem;
+    font-weight: bold;
+    color: #FBB42A;
+    position: absolute;
+    top: 0.09rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.26rem;
+    height: 0.26rem;
+    text-align: center;
+    line-height: 1.3;
+    border-radius: 50%;
+}
+
+
+.my-exhibits .cell .cell_title {
+    width: auto;
+    max-width: 1rem;
+    min-width: 0.3rem;
+    height: auto;
+    padding: 0.04rem 0.1rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.02rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 0.1rem;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 0.15rem;
+}
+
+/*popup样式*/
+.my-exhibits-popup {
+    width: 3.0rem;
+    padding: 0.15rem 0.25rem;
+    height: auto;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 0.1rem #333;
+}
+
+.my-exhibits-popup .leaflet-popup-content-wrapper,
+.my-exhibits-popup .leaflet-popup-content {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/*关闭按钮*/
+.my-exhibits-popup .leaflet-popup-close-button {
+    position: absolute;
+    top: 0.01rem;
+    right: 0.05rem;
+    font-size: 0.2rem;
+    color: #C3C1BD;
+}
+
+.my-exhibits-popup .cell {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/*倒角*/
+.my-exhibits-popup:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -0.05rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: 0;
+    height: 0;
+    border-width: 0.05rem 0.05rem 0;
+    border-style: solid;
+    border-color: #fff transparent transparent;
+}
+
+.my-exhibits-popup .cell .img {
+    float: left;
+    width: 0.98rem;
+    height: 0.98rem;
+}
+
+.my-exhibits-popup .cell .txt {
+    float: right;
+    position: relative;
+    width: calc(100% - 1.2rem);
+    height: 0.98rem;
+}
+
+.my-exhibits-popup .cell .txt .title {
+    font-size: 0.17rem;
+    color: #333;
+    font-weight: bold;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.my-exhibits-popup .cell .txt .brief {
+    height: 0.4rem;
+    line-height: 0.2rem;
+    font-size: 0.14rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.my-exhibits-popup .cell .txt .enter_btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0.76rem;
+    height: 0.3rem;
+    line-height: 2;
+    text-align: center;
+    font-size: 0.14rem;
+    color: #333333;
+    border: 0.01rem solid #FF9E04;
+    border-radius: 0.15rem;
+    cursor: pointer;
+}
+
+.swiper_num {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: 0.2rem;
+    color: #FF9E04;
+    cursor: pointer;
+}
+
+.swiper_num span {
+    font-size: 0.2rem;
+}

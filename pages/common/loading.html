@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <title>嘉善博物馆</title>
+    <link href="../../public/lib/animate.css" type="text/css" rel="stylesheet" />
+    <link href="../../public/css/common.css" type="text/css" rel="stylesheet" />
+    <style>
+    .main {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .main video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .layer {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .login_success {
+        display: none;
+        width: 4rem;
+        height: 2.4rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .login_success .c1 {
+        width: 4rem;
+        height: 2.17rem;
+        padding: 0.36rem;
+        margin-bottom: 0.25rem;
+        background: url('../../public/img/bg_login_tips.png') center center / 100% 100% no-repeat;
+    }
+
+    .login_success .c1 img {
+        display: block;
+        width: 1.13rem;
+        height: 0.75rem;
+        margin: 0.1rem auto 0.1rem;
+    }
+
+    .login_success .c1 p {
+        font-size: 0.16rem;
+        line-height: 1.5;
+        text-align: center;
+        color: #ffffff;
+    }
+
+    .login_fail {
+        display: none;
+        width: 4rem;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .login_fail .c1 {
+        width: 4rem;
+        height: 2.17rem;
+        padding-top: 0.6rem;
+        margin-bottom: 0.25rem;
+        background: url('../../public/img/bg_login_tips.png') center center / 100% 100% no-repeat;
+    }
+
+    .login_fail .c1 img {
+        display: block;
+        width: 1.13rem;
+        height: 0.75rem;
+        margin: 0.1rem auto 0.1rem;
+    }
+
+    .login_fail .c1 p {
+        font-size: 0.16rem;
+        line-height: 2;
+        text-align: center;
+        color: #FFB95F;
+    }
+
+    .login_fail .c1 .p1 {
+        font-size: 0.25rem;
+    }
+
+    .login_fail a.c2 {
+        display: block;
+        width: 0.46rem;
+        height: 0.87rem;
+        margin: 0 auto;
+        background: url('../../public/img/cancel.png') center center / 100% 100% no-repeat;
+    }
+    </style>
+</head>
+
+<body ontouchmove="javascript:window.event.preventDefault();">
+    <div class="main" id="main">
+        <video loop autoplay src="../../public/media/login.ogv"></video>
+        <div class="layer animated zoomIn">
+            <!-- 登录成功 -->
+            <div class="login_success">
+                <div class="c1">
+                    <img src="../../public/img/icon_login_success.png" alt="" />
+                    <p class="p1">恭喜，您已成功登录~</p>
+                </div>
+            </div>
+            <!-- 登录失败 -->
+            <div class="login_fail">
+                <div class="c1">
+                    <p class="p1">很抱歉，未能成功登录~</p>
+                    <p class="p2">请再次触发屏幕下方的NFC标签。</p>
+                </div>
+                <a class="c2" href="../../index.html"></a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../public/lib/jquery.min.3.3.1.js"></script>
+<script src="../../public/js/common.js"></script>
+<script>
+$(function() {
+    var id = Utils.getUrlKey("deviceId");
+
+    id && login(id);
+
+    function login(id) {
+        BaseAjax.post({
+            url: baseUrl + "/api/touchuser/login",
+            data: {
+                p: "t",
+                deviceId: id
+            },
+            success: function(rlt) {
+                if (rlt.status == 1) {
+                    localStorage.setItem("api_token", rlt.data.api_token);
+                    localStorage.setItem("name", rlt.data.name);
+                    localStorage.setItem("rent_time", rlt.data.rent_time);
+                    setTimeout(function() {
+                        $(".login_success").show();
+                        $(".layer").stop().fadeIn();
+                        setTimeout(function() {
+                            window.location.href = "../map/map.html";
+                        }, 2000);
+                    }, 2000);
+                } else {
+                    $(".login_fail").show();
+                    setTimeout(function() {
+                        $("video")[0].pause();
+                        $(".layer").stop().fadeIn();
+                    }, 4000);
+                }
+            },
+            error: function(rlt) {
+                console.log(rlt);
+            }
+        });
+    }
+    // $(".login_success a.c2").click(function() {
+    //     window.location.href = "../mymuseum/history.html";
+    // });
+});
+</script>
+
+</html>
