@@ -14,8 +14,8 @@ body {
 
 
 .top {
-    width: 2rem;
-    height: 4rem;
+    width: 4.41rem;
+    height: 7.53rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -28,11 +28,13 @@ body {
 
 .top .start {
     display: block;
-    width: 0.6rem;
-    height: 1.1rem;
+    width: 1.05rem;
+    height: 2.1rem;
     position: absolute;
-    bottom: 0.5rem;
-    left: 0.7rem;
+    bottom: 1.39rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     animation-duration: 1.5s;
     animation-delay: 1s;
     animation-iteration-count: infinite;
@@ -54,7 +56,8 @@ body {
     transition: all 0.15s ease-in;
     overflow: hidden;
 }
-.top a.start1:before{
+
+.top a.start1:before {
     content: ' ';
     position: absolute;
     width: 90px;
@@ -93,6 +96,7 @@ body {
         opacity: 0.3;
     }
 }
+
 @-moz-keyframes liuguang {
     0% {
         height: 40px;
@@ -109,6 +113,7 @@ body {
         opacity: 0.3;
     }
 }
+
 @-webkit-keyframes liuguang {
     0% {
         height: 40px;
@@ -125,6 +130,7 @@ body {
         opacity: 0.3;
     }
 }
+
 @-ms-keyframes liuguang {
     0% {
         height: 40px;
@@ -141,6 +147,7 @@ body {
         opacity: 0.3;
     }
 }
+
 @-o-keyframes liuguang {
     0% {
         height: 40px;
@@ -157,20 +164,22 @@ body {
         opacity: 0.3;
     }
 }
+
 .bottom {
-    width: 1.86rem;
+    width: 4.11rem;
     height: auto;
     position: absolute;
     bottom: 0;
-    left: 50%;
-    margin-left: -0.93rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     animation-duration: 1s;
     animation-delay: 0.5s;
 }
 
 .start {
     width: 1.35rem;
-    height: 0.36rem;
+    height: 0.45rem;
     margin: 0 auto;
     animation-duration: 1.5s;
     animation-delay: 1s;
@@ -179,7 +188,7 @@ body {
 }
 
 .pen {
-    width: 2rem;
+    width: 100%;
     height: auto;
     margin: 0.3rem auto 0;
     animation-duration: 1s;
@@ -188,25 +197,25 @@ body {
 
 .pen .r1 {
     width: 100%;
-    height: 0.2rem;
+    height: .45rem;
     animation-duration: 1s;
     animation-delay: 1s;
 }
 
 .pen .r2 {
-    width: 100%;
-    height: 0.8rem;
-    margin: 0.3rem auto 0;
+    width: 1.05rem;
+    height: 1.28rem;
+    margin: 0.4rem auto 0;
     animation: jumpdown 0.3s ease-in infinite alternate;
 }
 
 
 .qrcode {
-    width: 1.0rem;
-    height: 1.4rem;
+    width: 1.9rem;
+    height: 2.47rem;
     position: absolute;
     bottom: 0.6rem;
-    right: 0.8rem;
+    right: 1.83rem;
 }
 
 .qrcode .r2 {
@@ -218,21 +227,22 @@ body {
 
 .qrcode .r2 .title {
     width: 100%;
-    height: 0.25rem;
+    height: 0.45rem;
     line-height: 0.25rem;
     font-size: 0.14rem;
     color: #fff;
     text-align: center;
-    border: 1px solid #fff;
+    /*border: 1px solid #fff;*/
     border-radius: 0.3rem;
     letter-spacing: 0.015rem;
-    /*background: url(../img/icon_wx.png) center top no-repeat;*/
-    /*background-size: 100% 100%;*/
+    background: url(../img/icon_wx.png) center top no-repeat;
+    background-size: 100% 100%;
 }
+
 .qrcode .r2 img {
     /*border: 2px solid #FFD04B;*/
     width: 100%;
-    height: 1.0rem;
+    height: 1.92rem;
     margin-top: 0.1rem;
 }
 
@@ -254,4 +264,24 @@ a.enter {
     to {
         transform: translateY(0);
     }
+}
+
+.noticebox {
+    position: absolute;
+    left: .72rem;
+    bottom: .72rem;
+    width: 4.6rem;
+    height: 1.84rem;
+    background: url(../img/zixun.png) center top no-repeat;
+    padding: 0.35rem 0.27rem;
+    z-index: 3;
+}
+.swiper-container{
+    overflow: hidden;
+    height: 1.14rem;
+}
+.swiper-container .swiper-slide {
+    font-size: 18px;
+    color: #fff;
+    line-height: .48rem;
 }

@@ -58,7 +58,7 @@ var VM = new Vue({
         getRoomlist: function() {
             var vm = this;
             BaseAjax.get({
-                url: baseUrl + "/api/exhibition/exhibition_list",
+                url: baseUrl + "/api/exhibit_list",
                 data: {
                     p: "t"
                 },

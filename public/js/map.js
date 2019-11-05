@@ -55,7 +55,7 @@ var VM = new Vue({
         getMap: function() {
             var v = this;
             BaseAjax.get({
-                url: baseUrl + "/api/map_list",
+                url: baseUrl + "/api/exhibition_list",
                 data: {
                     p: "w",
                     floor_id: 0,
