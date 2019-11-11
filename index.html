@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<div class="main">
+<div class="main" id="main">
     <div class="top animated fadeInDown">
         <div class="start">
             <img src="public/img/bg2.png"/>
@@ -30,14 +30,17 @@
         </div>
     </div>
     <div class="noticebox animated slideInLeft fast">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">家乡有美景，何必去远方，孝感市文化中心开放啦</div>
-                <div class="swiper-slide">家乡有美景，何必去远方，孝感市文化中心开放..</div>
-                <div class="swiper-slide">家乡有美景，何必去远方，孝感市文化中心开放啦</div>
-                <div class="swiper-slide">家乡有美景，何必去远方，孝感市文化中心开放啦</div>
+        <div class="swiper-container" >
+            <div class="swiper-wrapper" id="warper">
+<!--                <div class="swiper-slide">{{item.title}}</div>-->
+                <!--                <div class="swiper-slide">家乡有美景，何必去远方，孝感市文化中心开放..</div>-->
+<!--                <div class="swiper-slide">家乡有美景，何必去远方，孝感市文化中心开放啦</div>-->
+<!--                <div class="swiper-slide">家乡有美景，何必去远方，孝感市文化中心开放啦</div>-->
             </div>
         </div>
+<!--        <div class="swiper-container" v-if="zixunlist.length==0&&isLoad" >-->
+<!--            <div class="nozixun">暂无资讯</div>-->
+<!--        </div>-->
     </div>
     <div class="qrcode animated slideInRight">
         <div class="r2 ">
@@ -56,8 +59,9 @@
     <a class="enter" id="enter"></a>
 </div>
 </body>
-<script src="public/lib/swiper/swiper.min.js"></script>
 <script src="public/lib/jquery.min.3.3.1.js"></script>
+<script src="public/lib/vue.min.2.2.2.js"></script>
+<script src="public/lib/swiper/swiper.min.js"></script>
 <script src="public/js/common.js"></script>
 <script src="public/js/index.js"></script>
 

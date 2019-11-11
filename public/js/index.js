@@ -13,9 +13,43 @@ $("#enter").on("click touchstart", function (e) {
         window.location.href = "./pages/map/map.html";
     }, 1000);
 });
-var mySwiper = new Swiper('.swiper-container', {
-    autoplay: true,//可选选项，自动滑动
-    direction: 'vertical',
-    slidesPerView: 3,
-    loop: true
-})
+
+function getNewList() {
+    BaseAjax.get({
+        url: baseUrl + "/api/news_list",
+        data: {
+            p: "w",
+            language_id: 1
+        },
+        success: function (res) {
+            console.log(res)
+            // v.isLoad = true;
+            if (res.status == 1) {
+                var html = '';
+                var zixunlist = res.data;
+                for (var i in zixunlist) {
+                    html += ` <div class="swiper-slide">${zixunlist[i].title}</div>`
+                }
+                $('#warper').append(html)
+                setTimeout(function () {
+                    var mySwiper = new Swiper('.swiper-container', {
+                        autoplay: {
+                            delay: 3000,      // 3秒切换一次
+                        },
+                        direction: 'vertical',
+                        slidesPerView: 3,
+                        loop: zixunlist.length >= 3,
+                        observeParents: true,
+                        observe: true,
+                        autoplayDisableOnInteraction: false
+                    });
+                }, 500)
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+getNewList();
