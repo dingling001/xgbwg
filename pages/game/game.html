@@ -2,99 +2,183 @@
 <html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="renderer" content="webkit" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-    <title>互动游戏 - 嘉善博物馆</title>
-    <link href="../../public/lib/animate.css" type="text/css" rel="stylesheet" />
-    <link href="../../public/css/common.css" type="text/css" rel="stylesheet" />
+    <meta charset="UTF-8"/>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width,height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <title>场馆介绍啊 - 孝感市文化中心博物馆</title>
+    <link href="../../public/lib/animate.css" type="text/css" rel="stylesheet"/>
+    <link href="../../public/css/common.css" type="text/css" rel="stylesheet"/>
     <style type="text/css">
-    @charset "utf-8";
+        @charset "utf-8";
 
-    body {
-        background: url(../../public/img/page_bg.png) center top / 100% 100% no-repeat;
-    }
+        body {
+            /*background: url(../../public/img/page_bg.png) center top / 100% 100% no-repeat;*/
+        }
 
-    .main {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        position: relative;
-    }
+        .main {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
 
-    .inner {
-        width: 8.0rem;
-        height: 4.2rem;
-        position: absolute;
-        top: 48%;
-        left: 2.4rem;
-        transform: translateY(-50%);
-    }
+        /*.inner {*/
+        /*    width: 8.0rem;*/
+        /*    height: 4.2rem;*/
+        /*    position: absolute;*/
+        /*    top: 48%;*/
+        /*    left: 2.4rem;*/
+        /*    transform: translateY(-50%);*/
+        /*}*/
+        .inner {
+            width: 12.53rem;
+            height: 8.68rem;
+            position: absolute;
+            top: 1rem;
+            left: 4.64rem;
+            background: url(../../public/img/jj.png) center top / 100% 100% no-repeat;
+            /*transform: translateY(-50%);*/
+        }
 
-    .inner .list {
-        width: 6.8rem;
-        height: auto;
-        position: absolute;
-        top: 50%;
-        right: 0.6rem;
-        transform: translateY(-50%);
-        display: flex;
-        justify-content: space-between;
-    }
+        .jjimg {
+            width: 5.76rem;
+            margin: .73rem auto 0.43rem auto;
+            position: relative;
+        }
 
-    .inner .list li {
-        width: 3.2rem;
-        height: auto;
-        transition: all 0.2s ease-out 0s;
-    }
+        .jjimg img {
+            width: 100%;
+        }
 
-    .inner .list li:active {
-        transform: scale(1.05);
-    }
+        .jjimg .shu {
+            position: absolute;
+            width: .53rem;
+            bottom: 0;
+            left: -1.17rem;
+            height: .43rem;
+        }
 
-    .inner .list li img {
-        display: block;
-        width: 100%;
-        height: auto;
-    }
+        #contWrap.swiper-container {
+            /*width: 8.05rem;*/
+            height: 3.69rem;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        #contWrap.swiper-container .swiper-wrapper .swiper-slide {
+            padding: 0;
+        }
+
+        .jj_content {
+            /*width: 8.05rem;*/
+            /*height: 3.06rem;*/
+            overflow-y: scroll;
+            font-size: 26px;
+            color: #FFB95F;
+            text-align: justify;
+            text-justify: inter-ideograph;
+            /*IE*/
+            padding: 0 1.5rem .5rem 1.5rem;
+            text-indent: 2em;
+        }
+
+        .inner .list {
+            width: 6.8rem;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            right: 0.6rem;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .inner .list li {
+            width: 3.2rem;
+            height: auto;
+            transition: all 0.2s ease-out 0s;
+        }
+
+        .inner .list li:active {
+            transform: scale(1.05);
+        }
+
+        .inner .list li img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 
 <body>
-    <div class="main" id="main">
-        <!-- 此处加载公共nav -->
-        <div class="inner">
-            <ul class="list">
-                <li>
-                    <a href="javaScript:" id="gameP"><img src="../../public/img/game1.png" /></a>
-                </li>
-                <li>
-                    <a href="javaScript:" id="gameA"><img src="../../public/img/game.jpg" /></a>
-                </li>
-            </ul>
+<div class="main" id="main">
+    <!-- 此处加载公共nav -->
+    <div class="inner animated zoomIn delay-1s">
+        <div class="jjimg">
+            <img src="../../public/img/bg.png" alt="">
+            <img src="../../public/img/shu.png" alt="" class="shu">
         </div>
+        <div class="swiper-container" id="contWrap">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide news_detail">
+                    <!--                    <div class="title">{{detail.title}}</div>-->
+                    <!--                    <div class="date">{{detail.created_at}}</div>-->
+                    <!--                    <div class="img">-->
+                    <!--                        <img :src="detail.list_img">-->
+                    <!--                    </div>-->
+                    <!--                    <div class="desc" v-html="detail.content">-->
+                    <!--                        &lt;!&ndash; <p>博物馆的前身是嘉善县文化馆的文物组"1977年，县文化馆配备文物专职干部1名，83年增至名。84年建立梅花庵文物保护管理所。86年11月，经县政府批准，县博物馆单独建制，馆址设在梅花庵内(即现址)，与梅花庵文保所合署办公。当时，占地面积为810平方米，建筑面积不到400平方米，主要建筑是前殿、后殿、二楼二底僧舍及部分围廊。</p>-->
+                    <!--                        <p>博物馆的前身是嘉善县文化馆的文物组"1977年，县文化馆配备文物专职干部1名，83年增至名。84年建立梅花庵文物保护管理所。86年11月，经县政府批准，县博物馆单独建制，馆址设在梅花庵内(即现址)，与梅花庵文保所合署办公。当时，占地面积为810平方米，建筑面积不到400平方米，主要建筑是前殿、后殿、二楼二底僧舍及部分围廊。</p>-->
+                    <!--                        <p>博物馆的前身是嘉善县文化馆的文物组"1977年，县文化馆配备文物专职干部1名，83年增至名。84年建立梅花庵文物保护管理所。86年11月，经县政府批准，县博物馆单独建制，馆址设在梅花庵内(即现址)，与梅花庵文保所合署办公。当时，占地面积为810平方米，建筑面积不到400平方米，主要建筑是前殿、后殿、二楼二底僧舍及部分围廊。</p>-->
+                    <!--                        <p>博物馆的前身是嘉善县文化馆的文物组"1977年，县文化馆配备文物专职干部1名，83年增至名。84年建立梅花庵文物保护管理所。86年11月，经县政府批准，县博物馆单独建制，馆址设在梅花庵内(即现址)，与梅花庵文保所合署办公。当时，占地面积为810平方米，建筑面积不到400平方米，主要建筑是前殿、后殿、二楼二底僧舍及部分围廊。</p> &ndash;&gt;-->
+                    <!--                    </div>-->
+                    <div class="jj_content">
+                        此处为占位文字：孝感市文化中心
+                        位于孝感市东城起步区，北临乾坤大道，南临豪府北路，西临董永路，东临纵1号路，规划用地260亩，净用地211亩，项目总建筑面积约13.47万㎡，总投资约12亿元，由三组建筑群六大场馆十大功能组成，包括大剧场、小剧场（含音乐厅和多功能厅），图书馆、方志馆、档案馆、博物馆、城市规划展览馆、群众艺术馆、科技馆、青少年宫、妇儿中心。
+                        开工建设孝感市文化中心是广大市民多年的期盼，它的建成将从根本上解决目前孝感市公共文化设施落后的状况，更好地满足广大市民的精神文化需求。对于促进文化大发展大繁荣，加快建设武汉城市圈副中心城市，具有重大意义。孝感市文化中心是首个以文化事业为主体的地标建筑，是孝感市历史上单体规模最大、标准最高、投入最多的非标准性公共文化设施。
+                    </div>
+                </div>
+            </div>
+            <!-- Add Scroll Bar -->
+            <div class="swiper-scrollbar"></div>
+        </div>
+        <!--            <ul class="list">-->
+        <!--                <li>-->
+        <!--                    <a href="javaScript:" id="gameP"><img src="../../public/img/game1.png" /></a>-->
+        <!--                </li>-->
+        <!--                <li>-->
+        <!--                    <a href="javaScript:" id="gameA"><img src="../../public/img/game.jpg" /></a>-->
+        <!--                </li>-->
+        <!--            </ul>-->
     </div>
+</div>
 </body>
 <script src="../../public/lib/jquery.min.3.3.1.js"></script>
+<script src="../../public/lib/swiper/swiper.min.js"></script>
 <script src="../../public/js/common.js"></script>
 <script>
-BaseAjax.get({
-    url: "../common/nav.html",
-    success: function(res) {
-        $(".main").prepend(res);
-        $(".leftnav").find(".sub4").addClass("on");
-        Utils.setLoctime();
-    }
-});
-//跳转到拼图游戏
-$("#gameP").click(function() {
-    jsObj.PinTuGame();
-});
-//跳转到问答游戏
-$("#gameA").click(function() {
-    jsObj.WendaGame();
-});
+    BaseAjax.get({
+        url: "../common/nav.html",
+        success: function (res) {
+            $(".main").prepend(res);
+            $(".leftnav").find(".sub4").addClass("on");
+            Utils.setLoctime();
+            setTimeout(function () {
+                Utils.initScrollCont();
+            }, 500)
+        }
+    });
+    //跳转到拼图游戏
+    // $("#gameP").click(function() {
+    //     jsObj.PinTuGame();
+    // });
+    // //跳转到问答游戏
+    // $("#gameA").click(function() {
+    //     jsObj.WendaGame();
+    // });
 </script>
 
 </html>

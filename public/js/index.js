@@ -28,7 +28,7 @@ function getNewList() {
                 var html = '';
                 var zixunlist = res.data;
                 for (var i in zixunlist) {
-                    html += ` <div class="swiper-slide">${zixunlist[i].title}</div>`
+                    html += ` <a class="swiper-slide" href="./pages/news/detail.html?id=${zixunlist[i].news_id}">${zixunlist[i].title}</a>`
                 }
                 $('#warper').append(html)
                 setTimeout(function () {

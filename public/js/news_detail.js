@@ -12,10 +12,11 @@ var VM = new Vue({
             var v = this;
             var id = Utils.getUrlKey("id");
             BaseAjax.get({
-                url: baseUrl + "/api/news/news_detail",
+                url: baseUrl + "/api/news_detail",
                 data: {
                     p: "t",
-                    news_id: id,
+                    news_id: id||1,
+                    language_id:1
                 },
                 success: function(res) {
                     if (res.status == 1) {

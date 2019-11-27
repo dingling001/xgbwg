@@ -59,7 +59,9 @@ body {
     position: absolute;
     top: 0;
 }
-
+body {
+    background: url(../img/allbg.png) center top / 100% 100% no-repeat;
+}
 ul,
 ol,
 li {
@@ -67,7 +69,7 @@ li {
 }
 
 img {
-    width: 100%;
+    /*width: 100%;*/
     height: 100%;
     vertical-align: top;
     border: none;
@@ -89,7 +91,7 @@ a:active {
 /*顶部logo*/
 .commonEle .topleft {
     width: 4.65rem;
-    height: 1.12rem;
+    height: .84rem;
     position: absolute;
     top: 0.4rem;
     left: 0.3rem;
@@ -112,15 +114,14 @@ a:active {
 
 /*左侧菜单*/
 .commonEle .leftnav {
-    width: 2rem;
-    height: 4rem;
+    width: 3.53rem;
+    height: 6.7rem;
     position: absolute;
-    top: 50%;
+    top: 2.54rem;
     left: 0;
-    margin-top: -2rem;
     z-index: 100;
     background: url(../img/bg_leftnav.png) center center / 100% 100% no-repeat;
-    padding: 0.5rem;
+    /*padding: 0.5rem;*/
 }
 
 .commonEle .leftnav.animated {
@@ -147,32 +148,35 @@ a:active {
 /*点击效果*/
 .commonEle .leftnav ul li:not(:first-child):active,
 .commonEle .leftnav ul li.on.effect {
-    width: 2.3rem;
+    width: 3.9rem;
     background: url(../img/bg7.png) center center / 100% 100% no-repeat;
 }
 
 .commonEle .leftnav ul li.on.effect .name p {
-    color: #ffffff;
+    /*color: #ffffff;*/
 }
 
 .commonEle .leftnav ul li .subItem {
     position: absolute;
-    left: 0.1rem;
+    /*left: 0.38rem;*/
+    left: 0;
+    /*padding-left: .38rem;*/
     top: 54%;
     transform: translateY(-50%);
-    width: 1.7rem;
-    height: 0.7rem;
+   width: 100%;
+    /*height: 0.7rem;*/
+    height: 1.03rem;
 }
 
 /*左侧图标*/
 .commonEle .leftnav ul li .subItem:before {
     display: block;
     content: " ";
-    width: 0.52rem;
-    height: 0.58rem;
+    width: .92rem;
+    height: 1.03rem;
     position: absolute;
     top: 50%;
-    left: 0.1rem;
+    left: 0.38rem;
     transform: translateY(-50%);
     background-position: center center;
     background-size: 100% 100%;
@@ -183,23 +187,30 @@ a:active {
 .commonEle .leftnav ul li .subItem .name {
     position: absolute;
     top: 50%;
-    right: 0.05rem;
+    left: 1.3rem;
+    /*right: 0.39rem;*/
     text-align: center;
-    width: 0.9rem;
+    /*width: 0.9rem;*/
+    width: 2.06rem;
     transform: translateY(-50%);
+}
+.commonEle .leftnav ul li.sub1 .subItem .name{
+    width: 1.99rem;
+    left: 1.03rem;
 }
 
 .commonEle .leftnav ul li .subItem .name .p1 {
-    font-size: 0.15rem;
+    font-size: 0.27rem;
     text-align: center;
     color: #FFB95F;
 }
 
 .commonEle .leftnav ul li .subItem .name .p2 {
-    font-size: 0.07rem;
+    font-size: 0.13rem;
     text-align: center;
     color: #FFB95F;
-    max-width: 1rem;
+    /*max-width: 1rem;*/
+    line-height: .3rem;
     margin: 0 auto;
     word-wrap: break-word;
 }
@@ -208,15 +219,17 @@ a:active {
 .commonEle .leftnav ul li.sub1 .subItem {
     border: 1px solid #FFB95F;
     border-radius: 0.15rem;
+    width: 3.03rem;
+    margin: 0 0 0 .16rem;
 }
 
 .commonEle .leftnav ul li.sub1 .subItem img {
     display: block;
-    width: 0.52rem;
-    height: 0.58rem;
+    width: 0.73rem;
+    height: 0.73rem;
     position: absolute;
     top: 55%;
-    left: 0.1rem;
+    left: 0.38rem;
     transform: translateY(-50%);
 }
 
@@ -227,19 +240,26 @@ a:active {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+.commonEle .leftnav ul li.sub1 .subItem .p1.nologin{
+    color: #fff;
+    font-size: .3rem;
+}
 .commonEle .leftnav ul li.sub1 .subItem .p2 {
     display: block;
-    width: 0.8rem;
-    height: 0.2rem;
+    /*width: 0.8rem;*/
+    /*height: 0.2rem;*/
     margin-top: 0.05rem;
     border-radius: 0.15rem;
     border: 0.005rem solid #d49f63;
     color: #d49f63;
-    font-size: 0.11rem;
-    line-height: 1.5;
+    font-size: 0.24rem;
+    /*line-height: 1.5;*/
     text-align: center;
     background-color: #AF6B1B;
+}
+.commonEle .leftnav ul li.sub1 .subItem .p2.nologin{
+    border: 0;
+    background: none;
 }
 
 .commonEle .leftnav ul li.sub2 .subItem:before {
@@ -545,10 +565,11 @@ a:active {
     display: block;
     position: absolute;
     bottom: 0.3rem;
-    left: 0.3rem;
-    width: 0.47rem;
-    height: 0.47rem;
+    left: 0.8rem;
+    width: 0.76rem;
+    height: 1.45rem;
     z-index: 9999;
+    font-size: 0;
     background: url('../img/btn_back.png') top center / 100% 100% no-repeat;
 }
 

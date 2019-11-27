@@ -15,14 +15,15 @@
 <body>
     <div class="main" id="main" v-cloak>
         <!-- 此处加载公共nav -->
+
         <div class="swiper-container" id="contWrap">
             <div class="swiper-wrapper">
                 <div class="swiper-slide news_detail">
                     <div class="title">{{detail.title}}</div>
-                    <div class="date">{{detail.time}}</div>
-                    <div class="img">
-                        <img :src="detail.list_img">
-                    </div>
+                    <div class="date">{{detail.created_at}}</div>
+<!--                    <div class="img">-->
+<!--                        <img :src="detail.list_img">-->
+<!--                    </div>-->
                     <div class="desc" v-html="detail.content">
                         <!-- <p>博物馆的前身是嘉善县文化馆的文物组"1977年，县文化馆配备文物专职干部1名，83年增至名。84年建立梅花庵文物保护管理所。86年11月，经县政府批准，县博物馆单独建制，馆址设在梅花庵内(即现址)，与梅花庵文保所合署办公。当时，占地面积为810平方米，建筑面积不到400平方米，主要建筑是前殿、后殿、二楼二底僧舍及部分围廊。</p>
                         <p>博物馆的前身是嘉善县文化馆的文物组"1977年，县文化馆配备文物专职干部1名，83年增至名。84年建立梅花庵文物保护管理所。86年11月，经县政府批准，县博物馆单独建制，馆址设在梅花庵内(即现址)，与梅花庵文保所合署办公。当时，占地面积为810平方米，建筑面积不到400平方米，主要建筑是前殿、后殿、二楼二底僧舍及部分围廊。</p>

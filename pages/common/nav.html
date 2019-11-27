@@ -1,9 +1,9 @@
 <!-- 顶部logo、顶部时间天气、左侧菜单 -->
 <div class="commonEle">
     <div class="topleft animated fadeInDown"><img src="../../public/img/page_logo.png" /></div>
-    <div class="topright">
-        <div class="c1" id="time1"></div>
-    </div>
+<!--    <div class="topright">-->
+<!--        <div class="c1" id="time1"></div>-->
+<!--    </div>-->
     <div class="leftnav animated fadeInLeft">
         <ul>
             <li class="sub1">
@@ -34,47 +34,47 @@
             <li class="sub4" data-href="../game/game.html">
                 <div class="subItem">
                     <div class="name">
-                        <p class="p1">互动游戏</p>
-                        <p class="p2">INTERACTIVE GAMES</p>
+                        <p class="p1">场馆介绍</p>
+                        <p class="p2">Venue introduction</p>
                     </div>
                 </div>
             </li>
         </ul>
     </div>
-    <div class="mynav animated fadeInUp">
-        <ul class="list">
-            <li class="sub1">
-                <a href="../news/list.html" class="on">
-                    <div class="icon icon1"></div>
-                    <span>新闻资讯</span>
-                </a>
-            </li>
-            <li class="sub2">
-                <a href="../brief/brief.html">
-                    <div class="icon icon2"></div>
-                    <span>场馆简介</span>
-                </a>
-            </li>
-            <li class="sub3">
-                <a href="../notice/notice.html">
-                    <div class="icon icon3"></div>
-                    <span>参观攻略</span>
-                </a>
-            </li>
-            <li class="sub4">
-                <a href="../3d/3d_list.html">
-                    <div class="icon icon4"></div>
-                    <span>3D文物</span>
-                </a>
-            </li>
-            <li class="sub5">
-                <a href="../mymuseum/mymuseum.html">
-                    <div class="icon icon5"></div>
-                    <span>我的博馆物</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+<!--    <div class="mynav animated fadeInUp">-->
+<!--        <ul class="list">-->
+<!--            <li class="sub1">-->
+<!--                <a href="../news/list.html" class="on">-->
+<!--                    <div class="icon icon1"></div>-->
+<!--                    <span>新闻资讯</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="sub2">-->
+<!--                <a href="../brief/brief.html">-->
+<!--                    <div class="icon icon2"></div>-->
+<!--                    <span>场馆简介</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="sub3">-->
+<!--                <a href="../notice/notice.html">-->
+<!--                    <div class="icon icon3"></div>-->
+<!--                    <span>参观攻略</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="sub4">-->
+<!--                <a href="../3d/3d_list.html">-->
+<!--                    <div class="icon icon4"></div>-->
+<!--                    <span>3D文物</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="sub5">-->
+<!--                <a href="../mymuseum/mymuseum.html">-->
+<!--                    <div class="icon icon5"></div>-->
+<!--                    <span>我的博馆物</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
 </div>
 <!-- 登录提示弹出层 -->
 <div class="loginEle animated zoomIn">
@@ -117,13 +117,13 @@ $(function() {
         $(".mynav ul li.sub5").css('display', 'flex');
     } else {
         $(".leftnav ul li.sub1 img").attr("src", "../../public/img/bg45.png");
-        $(".leftnav ul li.sub1 .p1").text("游客");
-        $(".leftnav ul li.sub1 .p2").text("登录");
+        $(".leftnav ul li.sub1 .p1").text("游客").addClass('nologin');
+        $(".leftnav ul li.sub1 .p2").text("绑定 / 登录").addClass('nologin');
         $(".mynav ul li.sub5").css('display', 'none');
     }
 
     $(".leftnav ul li.on").animate({
-            opacity: 0.9
+            opacity: 1
         },
         800,
         function() {

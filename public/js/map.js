@@ -21,17 +21,18 @@ var VM = new Vue({
         //         floor_name: '3F'
         //     },
         // ],
-        imgWidth: 3720, //图片像素宽
-        imgHeight: 2560, //图片像素高
+        imgWidth: 4260, //图片像素宽
+        imgHeight: 2924, //图片像素高
         myMap: null,
         imageOverlay: null,
         myLayerGroup: null,
         lists: [], //坐标点
+        ind: 0
     },
-    created: function() {
+    created: function () {
         this.myLayerGroup = new L.LayerGroup();
     },
-    mounted: function() {
+    mounted: function () {
         this.getLeftMenu();
         this.getMap();
     },
@@ -39,10 +40,10 @@ var VM = new Vue({
         /**
          * @获取左侧菜单
          */
-        getLeftMenu: function() {
+        getLeftMenu: function () {
             BaseAjax.get({
                 url: "../common/nav.html",
-                success: function(rlt) {
+                success: function (rlt) {
                     $(".main").prepend(rlt);
                     $(".leftnav").find(".sub2").addClass("on");
                     Utils.setLoctime();
@@ -52,27 +53,28 @@ var VM = new Vue({
         /**
          * @根据地图获得展厅列表
          */
-        getMap: function() {
+        getMap: function () {
             var v = this;
             BaseAjax.get({
                 url: baseUrl + "/api/exhibition_list",
                 data: {
                     p: "w",
-                    floor_id: 0,
-                    language:1
+                    // floor_id: 0,
+                    language: 1
                 },
-                success: function(res) {
+                success: function (res) {
                     v.isLoad = true;
                     if (res.status == 1) {
-                        var list = res.data;
+                        console.log(res)
+                        v.menus = res.data;
                         // console.log(list)
-                        if (list.length) {
-                            v.menus = list.sort(function(a, b) {
-                                return a.floor_id - b.floor_id
-                            });
-                            v.$nextTick(function() {
+                        if (v.menus.length) {
+                            // v.menus = list.sort(function(a, b) {
+                            //     return a.floor_id - b.floor_id
+                            // });
+                            v.$nextTick(function () {
+                                v.getList()
                                 v.initMap();
-                                v.initMarkers();
                             })
                             // 
                             // v.newList = v.getArrEqual(list, v.floorInfo, 'floor_id').sort(function(a, b) {
@@ -81,17 +83,50 @@ var VM = new Vue({
                         }
                     }
                 },
-                error: function(err) {
+                error: function (err) {
                     console.log(err);
                 }
             });
         },
         /**
-         * @地图绘制
+         * @获取展厅展品
          */
-        initMap: function() {
+        getList:function(){
+            var v=this;
+            BaseAjax.get({
+                url: baseUrl + "/api/map_exhibit",
+                data: {
+                    p: "w",
+                    map_id: v.menus[v.ind].exhibition_id,
+                    language: 1
+                },
+                success: function (res) {
+                    if (res.status == 1) {
+                        console.log(res)
+                        v.lists = res.data;
+                        // console.log(list)
+                        if (v.lists.length) {
+                            // v.menus = list.sort(function(a, b) {
+                            //     return a.floor_id - b.floor_id
+                            // });
+                            v.$nextTick(function () {
+                                v.initMarkers();
+                            })
+                            //
+                            // v.newList = v.getArrEqual(list, v.floorInfo, 'floor_id').sort(function(a, b) {
+                            //     return a.floor_id - b.floor_id
+                            // });;
+                        }
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        },
+        initMap: function () {
             var v = this;
-            var url = v.menus[0].map_path;
+            var url = v.menus[v.ind].unselected_icon;
             var imgWidth = v.imgWidth;
             var imgHeight = v.imgHeight;
             v.myMap = new L.map("map", {
@@ -117,71 +152,230 @@ var VM = new Vue({
         /**
          * @地图描点---根据地图获得展厅列表
          */
-        initMarkers: function(idx) {
+        initMarkers: function() {
             var v = this;
-            var idx = idx || 0;
-            var id = v.menus[idx].map_id;
-            v.floor = v.menus[idx].floor_id;
-            v.name = v.menus[idx].exhibition_name;
+            var imgWidth = v.imgWidth;
+            var imgHeight = v.imgHeight;
+            var len = v.lists.length;
+            console.log(v.lists)
+            for (var i = 0; i < len; i++) {
+                var d = v.lists[i];
+                var nx = d.x - imgWidth / 2;
+                var ny = d.y - imgHeight / 2;
+                var markerContent, popupContent;
+                // var exhibitLen = d.exhibit_list.length;
+                var exhibitLen = d.length;
 
-            //清楚所有marker重新绘制
-            v.myLayerGroup.clearLayers();
+                // if (exhibitLen == 1) {
+                //     var o = d.exhibit_list[0];
+                var o = d;
+                console.log(o)
+                markerContent = `<div class="cell">
+                                        <div class="cell_icon markerbg_1">
+                                            <img src="${o.map_icon}" alt="" />
+                                        </div>
+                                        <div class="cell_title">${o.exhibit_name}</div>
+                                    </div>`;
+                    // popupContent = v.renderPopup1(d.exhibit_list);
+                // }
+                // else if (exhibitLen > 1) {
+                //     markerContent = `<div class="cell">
+                //                         <div class="cell_icon markerbg_2">
+                //                             <span>${exhibitLen}</span>
+                //                         </div>
+                //                     </div>`;
+                //     popupContent = `<div class="swiper-container" id="mySwiper1">
+                //                         <div class="swiper-wrapper">${v.renderPopup2(d.exhibit_list)}</div>
+                //                     </div>
+                //                     <div class="swiper-button-next"></div>
+                //                     <div class="swiper-button-prev"></div>`;
+                // }
+                var myIcon = new L.divIcon({
+                    className: "my-exhibits",
+                    html: markerContent
+                });
 
-            BaseAjax.get({
-                url: baseUrl + "/api/exhibition/exhibitions_on_map",
-                data: {
-                    p: "t",
-                    map_id: id
-                },
-                success: function(res) {
-                    v.lists = res.data;
-                    var len = res.data.length;
-                    // console.log(res.data)
-                    for (var i = 0; i < len; i++) {
-                        var d = v.lists[i];
-                        var nx = d.x - v.imgWidth / 2;
-                        var ny = d.y - v.imgHeight / 2;
-                        // var markerC = `<div class='cell' data_id='${d.exhibition_id}'>
-                        //                     <div class='cell_icon'>
-                        //                         <img src='${d.map_icon}'>
-                        //                     </div>
-                        //                     <div class='cell_title'>
-                        //                         ${d.title}
-                        //                         <a class="btn_in" href="../../pages/map/mapD.html?id=${d.exhibition_id}">点击进入></a>
-                        //                     </div>
-                        //                 </div>`;
-                        var markerC = `<div class='cell' data_id='${d.exhibition_id}'></div>`;
-                        var myIcon = new L.divIcon({
-                            className: "my-exhibits",
-                            html: markerC
-                        });
-                        var point = new L.marker([ny, nx], {
-                            icon: myIcon
-                        });
+                var popup = new L.popup({
+                    className: 'my-exhibits-popup',
+                    keepInView: true,
+                    offset: [0, -80],
+                    closeOnClick: false,
+                })
+                    .setContent(popupContent);
+                var point = L.marker([ny, nx], {
+                    icon: myIcon,
+                })
+                    .addTo(v.myMap)
+                    .bindPopup(popup)
+                    // .openPopup()
+                    .on('popupopen', function(e) {
+                        v.initSwiper1();
                         // 点位添加点击事件
-                        point.on("click", function(ev) {
-                            var target = ev.target;
-                            var cell = target._icon.getElementsByClassName("cell")[0];
-                            var id = cell.getAttribute("data_id");
-                            window.location.href = "../../pages/map/mapD.html?id=" + id;
+                        $(".enter_btn").each(function() {
+                            $(this).on("click", function(ev) {
+                                var id = $(ev.target).attr("data_id");
+                                window.location.href = "../exhibition/detail.html?id=" + id;
+                            });
                         });
-
-                        v.myLayerGroup.addLayer(point);
-                        v.myMap.addLayer(v.myLayerGroup);
-                    }
-                }
+                    })
+            }
+        },
+        initSwiper1: function() {
+            var swiper1 = new Swiper('#mySwiper1', {
+                loop: false,
+                slidesPerView: 1,
+                centeredSlides: true,
+                observer: true,
+                observerParents: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                on: {
+                    init: function() {
+                        // alert('当前的slide序号是' + this.activeIndex);
+                        this.emit('transitionEnd'); //在初始化时触发一次transitionEnd事件
+                    },
+                    transitionEnd: function() {},
+                    slideChangeTransitionEnd: function() {
+                        // if (this.isEnd) {
+                        //     this.navigation.$nextEl.css('display', 'none');
+                        // } else {
+                        //     this.navigation.$nextEl.css('display', 'block');
+                        // }
+                    },
+                },
             });
         },
+        renderPopup1: function(list) {
+            var str = "";
+            for (var i in list) {
+                str += `<div class="cell">
+                            <div class="img">
+                                <img src="${list[i].map_icon}" alt="" />
+                            </div>
+                            <div class="txt">
+                                <div class="title">${list[i].title}</div>
+                                <div class="brief">${list[i].brief_desc}</div>
+                                <div data_id="${list[i].exhibit_id}" class="enter_btn">进入》</div>
+                            </div>
+                        </div>`;
+            }
+            return str;
+        },
+        renderPopup2: function(list) {
+            var str = "";
+            for (var j in list) {
+                str += `<div class="swiper-slide">
+                            <div class="cell">
+                                <div class="img">
+                                    <img src="${list[j].map_icon}" alt="" />
+                                </div>
+                                <div class="txt">
+                                    <div class="title">${list[j].title}</div>
+                                    <div class="brief">${list[j].brief_desc}</div>
+                                    <div class="swiper_num">
+                                        <span class="curT">${parseInt(j) + 1}</span>/<span>${list.length}</span>
+                                    </div>
+                                    <div data_id="${list[j].exhibit_id}" class="enter_btn">进入》</div>
+                                </div>
+                            </div>
+                        </div>`;
+            }
+            return str;
+        },
+        // initMarkers: function (idxs) {
+        //     var v = this;
+        //     var idx = v.ind;
+        //     var id = v.menus[idx].exhibition_id;
+        //     v.floor = v.menus[idx].floor_id;
+        //     v.name = v.menus[idx].exhibition_name;
+        //
+        //     //清楚所有marker重新绘制
+        //     v.myLayerGroup.clearLayers();
+        //
+        //     BaseAjax.get({
+        //         url: baseUrl + "/api/map_exhibit",
+        //         data: {
+        //             p: "t",
+        //             map_id: id
+        //         },
+        //         success: function (res) {
+        //             v.lists = res.data;
+        //             var len = res.data.length;
+        //             // console.log(res.data)
+        //             for (var i = 0; i < len; i++) {
+        //                 var d = v.lists[i];
+        //                 var nx = d.x - v.imgWidth / 2;
+        //                 var ny = d.y - v.imgHeight / 2;
+        //                 // var markerC = `<div class='cell' data_id='${d.exhibition_id}'>
+        //                 //                     <div class='cell_icon'>
+        //                 //                         <img src='${d.map_icon}'>
+        //                 //                     </div>
+        //                 //                     <div class='cell_title'>
+        //                 //                         ${d.title}
+        //                 //                         <a class="btn_in" href="../../pages/map/mapD.html?id=${d.exhibition_id}">点击进入></a>
+        //                 //                     </div>
+        //                 //                 </div>`;
+        //                 var markerC = `<div class='cell' data_id='${d.exhibition_id}'></div>`;
+        //                 var myIcon = new L.divIcon({
+        //                     className: "my-exhibits",
+        //                     html: markerC
+        //                 });
+        //                 var point = new L.marker([ny, nx], {
+        //                     icon: myIcon
+        //                 });
+        //                 // 点位添加点击事件
+        //                 point.on("click", function (ev) {
+        //                     var target = ev.target;
+        //                     var cell = target._icon.getElementsByClassName("cell")[0];
+        //                     var id = cell.getAttribute("data_id");
+        //                     window.location.href = "../../pages/map/mapD.html?id=" + id;
+        //                 });
+        //
+        //                 v.myLayerGroup.addLayer(point);
+        //                 v.myMap.addLayer(v.myLayerGroup);
+        //             }
+        //         }
+        //     });
+        // },
         /**
          * @地图切换
          */
-        changeMap: function(idx) {
+        // changeMap: function (idx) {
+        //     var v = this;
+        //     var url = v.menus[idx].map_path;
+        //     v.imageOverlay.setUrl(url); //更换图层
+        //     v.initMarkers(idx); //更换图标
+        //     v.imageOverlay.on('load', function () {
+        //         v.curT = idx;
+        //     })
+        // },
+        changeLeft: function () {
             var v = this;
-            var url = v.menus[idx].map_path;
+            if (v.ind > 0) {
+                v.ind -= 1;
+            }
+            console.log(v.ind);
+            console.log(v.menus)
+            var url = v.menus[v.ind].map_path;
             v.imageOverlay.setUrl(url); //更换图层
-            v.initMarkers(idx); //更换图标
-            v.imageOverlay.on('load', function() {
-                v.curT = idx;
+            v.initMarkers(v.ind); //更换图标
+            v.imageOverlay.on('load', function () {
+                v.curT = v.ind;
+            })
+        },
+        changeRight: function () {
+            var v = this;
+            if (v.ind < v.menus.length - 1) {
+                v.ind += 1;
+            }
+            console.log(v.ind);
+            var url = v.menus[v.ind].map_path;
+            v.imageOverlay.setUrl(url); //更换图层
+            v.initMarkers(v.ind); //更换图标
+            v.imageOverlay.on('load', function () {
+                v.curT = v.ind;
             })
         },
         // changeMap: function(i) {

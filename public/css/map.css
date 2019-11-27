@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 body {
-    background: url(../img/page_bg.png) center top / 100% 100% no-repeat;
+    /*//background: url(../img/page_bg.png) center top / 100% 100% no-repeat;*/
 }
 
 .main {
@@ -12,14 +12,26 @@ body {
 }
 
 .inner {
-    width: 7.5rem;
-    height: 4.2rem;
+    width: 14.04rem;
+    height: 9.8rem;
     position: absolute;
-    top: 48%;
-    left: 2.7rem;
-    transform: translateY(-50%);
+    top: 1rem;
+    left: 4.64rem;
+    background: url(../img/map_bg.png) center top / 100% 100% no-repeat;
+    /*transform: translateY(-50%);*/
 }
 
+.exhibition_name {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    /*-webkit-background-clip:text;*/
+    /*-webkit-text-fill-color:transparent;*/
+    font-size: .36rem;
+    padding: .5rem 0;
+    color: #F49D2E;
+}
 
 .leftFloor {
     width: auto;
@@ -28,12 +40,36 @@ body {
     transform: translateY(-50%);
 }
 
+.leftbtn {
+    background: url(../img/leftbtn.png) center top / 100% 100% no-repeat;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    left: .59rem;
+    top: 45%;
+    cursor: pointer;
+}
+.rightbtn{
+    background: url(../img/rightbtn.png) center top / 100% 100% no-repeat;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    right: .59rem;
+    top: 45%;
+    cursor: pointer;
+}
+.firstbtn{
+    opacity: .3;
+    cursor: not-allowed;
+}
 .leftFloor .item {
     transition: all 0.12s ease-in-out;
     cursor: pointer;
 }
 
-.leftFloor .item+.item {
+.leftFloor .item + .item {
     margin-top: 0.3rem;
 }
 
@@ -55,9 +91,9 @@ body {
 }
 
 .rightMap {
-    margin-left: 0.8rem;
-    width: calc(100% - 0.8rem);
-    height: 4.2rem;
+    width: 10.65rem;
+    margin: 1.28rem auto;
+    height: 6.93rem;
 }
 
 /*.rightMap ul li {
@@ -136,3 +172,202 @@ body {
     line-height: 1.5;
     text-decoration: underline;
 }*/
+.mainex{
+    position: absolute;
+    /*width: ;*/
+}
+
+/*点位样式*/
+.my-exhibits {
+    width: 0 !important;
+    height: 0 !important;
+    margin-left: auto !important;
+    margin-top: auto !important;
+    position: relative;
+}
+
+.my-exhibits .cell {
+    width: 0.4rem;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: -0.2rem;
+    cursor: pointer;
+}
+
+.my-exhibits .cell .cell_icon {
+    position: relative;
+    width: 0.4rem;
+    height: 0.5rem;
+}
+
+.my-exhibits .cell .cell_icon.markerbg_1 {
+    background: url('../img/bg_marker1.png') top center / 100% 100% no-repeat;
+}
+
+.my-exhibits .cell .cell_icon.markerbg_1 img {
+    display: block;
+    width: 0.28rem;
+    height: 0.28rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.05rem;
+    left: 50%;
+    margin-left: -0.14rem;
+    vertical-align: middle;
+}
+
+.my-exhibits .cell .cell_icon.markerbg_2 {
+    width: 0.44rem;
+    height: 0.6rem;
+    font-size: 0;
+    background: url('../img/bg_marker.png') top center / 100% 100% no-repeat;
+}
+
+.my-exhibits .cell .cell_icon.markerbg_2 span {
+    font-size: 0.2rem;
+    font-weight: bold;
+    color: #FBB42A;
+    position: absolute;
+    top: 0.09rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.26rem;
+    height: 0.26rem;
+    text-align: center;
+    line-height: 1.3;
+    border-radius: 50%;
+}
+
+
+.my-exhibits .cell .cell_title {
+    width: auto;
+    max-width: 1rem;
+    min-width: 0.3rem;
+    height: auto;
+    padding: 0.04rem 0.1rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.02rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 0.1rem;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 0.15rem;
+}
+
+/*popup样式*/
+.my-exhibits-popup {
+    width: 3.0rem;
+    padding: 0.15rem 0.25rem;
+    height: auto;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 0.1rem #333;
+}
+
+.my-exhibits-popup .leaflet-popup-content-wrapper,
+.my-exhibits-popup .leaflet-popup-content {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/*关闭按钮*/
+.my-exhibits-popup .leaflet-popup-close-button {
+    position: absolute;
+    top: 0.01rem;
+    right: 0.05rem;
+    font-size: 0.2rem;
+    color: #C3C1BD;
+}
+
+.my-exhibits-popup .cell {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/*倒角*/
+.my-exhibits-popup:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -0.05rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: 0;
+    height: 0;
+    border-width: 0.05rem 0.05rem 0;
+    border-style: solid;
+    border-color: #fff transparent transparent;
+}
+
+.my-exhibits-popup .cell .img {
+    float: left;
+    width: 0.98rem;
+    height: 0.98rem;
+}
+
+.my-exhibits-popup .cell .txt {
+    float: right;
+    position: relative;
+    width: calc(100% - 1.2rem);
+    height: 0.98rem;
+}
+
+.my-exhibits-popup .cell .txt .title {
+    font-size: 0.17rem;
+    color: #333;
+    font-weight: bold;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.my-exhibits-popup .cell .txt .brief {
+    height: 0.4rem;
+    line-height: 0.2rem;
+    font-size: 0.14rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.my-exhibits-popup .cell .txt .enter_btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0.76rem;
+    height: 0.3rem;
+    line-height: 2;
+    text-align: center;
+    font-size: 0.14rem;
+    color: #333333;
+    border: 0.01rem solid #FF9E04;
+    border-radius: 0.15rem;
+    cursor: pointer;
+}
+
+.swiper_num {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: 0.2rem;
+    color: #FF9E04;
+    cursor: pointer;
+}
+
+.swiper_num span {
+    font-size: 0.2rem;
+}
