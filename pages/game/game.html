@@ -9,6 +9,7 @@
           content="width=device-width,height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
     <title>场馆介绍啊 - 孝感市文化中心博物馆</title>
     <link href="../../public/lib/animate.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../public/lib/swiper/swiper.min.css">
     <link href="../../public/css/common.css" type="text/css" rel="stylesheet"/>
     <style type="text/css">
         @charset "utf-8";
@@ -44,6 +45,7 @@
 
         .jjimg {
             width: 5.76rem;
+            height: 3.02rem;
             margin: .73rem auto 0.43rem auto;
             position: relative;
         }
@@ -110,6 +112,13 @@
             width: 100%;
             height: auto;
         }
+        #contWrap.swiper-container-vertical>.swiper-scrollbar{
+            right: 1.2rem;
+        }
+        .topswiper{
+            overflow: hidden;
+            height: 3.02rem;
+        }
     </style>
 </head>
 
@@ -118,8 +127,14 @@
     <!-- 此处加载公共nav -->
     <div class="inner animated zoomIn delay-1s">
         <div class="jjimg">
-            <img src="../../public/img/bg.png" alt="">
             <img src="../../public/img/shu.png" alt="" class="shu">
+            <div class="swiper-container topswiper">
+                <div class="swiper-wrapper" id="topswiper">
+<!--                    <div class="swiper-slide">-->
+<!--                        <img src="../../public/img/bg.png" alt="">-->
+<!--                    </div>-->
+                </div>
+            </div>
         </div>
         <div class="swiper-container" id="contWrap">
             <div class="swiper-wrapper">
@@ -136,9 +151,9 @@
                     <!--                        <p>博物馆的前身是嘉善县文化馆的文物组"1977年，县文化馆配备文物专职干部1名，83年增至名。84年建立梅花庵文物保护管理所。86年11月，经县政府批准，县博物馆单独建制，馆址设在梅花庵内(即现址)，与梅花庵文保所合署办公。当时，占地面积为810平方米，建筑面积不到400平方米，主要建筑是前殿、后殿、二楼二底僧舍及部分围廊。</p> &ndash;&gt;-->
                     <!--                    </div>-->
                     <div class="jj_content">
-                        此处为占位文字：孝感市文化中心
-                        位于孝感市东城起步区，北临乾坤大道，南临豪府北路，西临董永路，东临纵1号路，规划用地260亩，净用地211亩，项目总建筑面积约13.47万㎡，总投资约12亿元，由三组建筑群六大场馆十大功能组成，包括大剧场、小剧场（含音乐厅和多功能厅），图书馆、方志馆、档案馆、博物馆、城市规划展览馆、群众艺术馆、科技馆、青少年宫、妇儿中心。
-                        开工建设孝感市文化中心是广大市民多年的期盼，它的建成将从根本上解决目前孝感市公共文化设施落后的状况，更好地满足广大市民的精神文化需求。对于促进文化大发展大繁荣，加快建设武汉城市圈副中心城市，具有重大意义。孝感市文化中心是首个以文化事业为主体的地标建筑，是孝感市历史上单体规模最大、标准最高、投入最多的非标准性公共文化设施。
+                        <!--                        此处为占位文字：孝感市文化中心-->
+                        <!--                        位于孝感市东城起步区，北临乾坤大道，南临豪府北路，西临董永路，东临纵1号路，规划用地260亩，净用地211亩，项目总建筑面积约13.47万㎡，总投资约12亿元，由三组建筑群六大场馆十大功能组成，包括大剧场、小剧场（含音乐厅和多功能厅），图书馆、方志馆、档案馆、博物馆、城市规划展览馆、群众艺术馆、科技馆、青少年宫、妇儿中心。-->
+                        <!--                        开工建设孝感市文化中心是广大市民多年的期盼，它的建成将从根本上解决目前孝感市公共文化设施落后的状况，更好地满足广大市民的精神文化需求。对于促进文化大发展大繁荣，加快建设武汉城市圈副中心城市，具有重大意义。孝感市文化中心是首个以文化事业为主体的地标建筑，是孝感市历史上单体规模最大、标准最高、投入最多的非标准性公共文化设施。-->
                     </div>
                 </div>
             </div>
@@ -171,14 +186,44 @@
             }, 500)
         }
     });
-    //跳转到拼图游戏
-    // $("#gameP").click(function() {
-    //     jsObj.PinTuGame();
-    // });
-    // //跳转到问答游戏
-    // $("#gameA").click(function() {
-    //     jsObj.WendaGame();
-    // });
+
+
+    function getIntroduce() {
+        var html = '';
+        BaseAjax.get({
+            url: baseUrl + "/api/introduce",
+            data: {
+                p: "w",
+                language_id: 1
+            },
+            success: function (res) {
+                console.log(res)
+                // v.isLoad = true;
+                if (res.status == 1) {
+                    var pic_path = res.data.pic_path
+                    $('.jj_content').text(res.data.content)
+                    if (pic_path.length) {
+                        for (var i in pic_path) {
+                            html=` <div class="swiper-slide"> <img src=" ${baseUrl}${pic_path}" alt=""></div>`;
+
+                        }
+                        // html=` <div class="swiper-slide"> <img src=" ${baseUrl}${pic_path}" alt=""></div>`;
+                        $('#topswiper').append(html);
+                        var topswiper = new Swiper('.topswiper', {
+                            observer: true,
+                            observeParents: true,
+                        });
+                    }
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+
+    getIntroduce()
+
 </script>
 
 </html>
