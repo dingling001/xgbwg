@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 body {
-    //background: url(../img/page_bg.png) center top / 100% 100% no-repeat;
+/ / background: url(../img/page_bg.png) center top / 100 % 100 % no-repeat;
 }
 
 .main {
@@ -13,12 +13,10 @@ body {
 
 /* 主体轮播 */
 .ex_list {
-    width: 8.0rem;
+    width: 14.61rem;
     height: auto;
-    position: absolute;
-    top: 45%;
-    left: 2.4rem;
-    transform: translateY(-50%);
+    margin: 1.5rem auto 0 4.59rem;
+    /*transform: translateY(-50%);*/
 }
 
 /* 大图 */
@@ -70,15 +68,14 @@ body {
 /* 底部导航 */
 .ex_nav {
     position: absolute;
-    bottom: 1rem;
+    bottom: 0;
     right: 0;
-    width: -webkit-calc(100% - 2.4rem);
-    width: -ms-calc(100% - 2.4rem);
-    width: -moz-calc(100% - 2.4rem);
-    width: calc(100% - 2.4rem);
-    margin-left: 2.4rem;
-    height: 1rem;
-    border-bottom: 0.01rem solid #F3CF80;
+    width: -webkit-calc(100% - 4.59rem);
+    width: -ms-calc(100% - 4.59rem);
+    width: -moz-calc(100% - 4.59rem);
+    width: calc(100% - 4.59rem);
+    /*height: 1rem;*/
+    /*border-bottom: 0.01rem solid #F3CF80;*/
     display: flex;
     justify-content: center;
 }
@@ -86,11 +83,11 @@ body {
 .ex_nav ul {
     display: flex;
     justify-content: space-between;
-    height: 1rem;
+    /*height: 1rem;*/
 }
 
 .ex_nav ul li {
-    width: 1.5rem;
+    width: 3.2rem;
     line-height: 1.5;
     text-align: center;
     transition: all 0.2s ease-out 0s;
@@ -99,27 +96,32 @@ body {
     cursor: pointer;
 }
 
-.ex_nav ul li+li {
+.ex_nav ul li + li {
     margin-left: 0.2rem;
+    border-bottom: 0.05rem solid transparent;
 }
 
 .ex_nav ul li .room_icon {
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.6rem;
+    height: 0.6rem;
     margin: 0 auto;
 }
 
 .ex_nav ul li .room_name {
-    font-size: 0.14rem;
-    margin-top: 0.05rem;
+    font-size: 24px;
     width: 100%;
+    line-height: .6rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
+.ex_nav ul li.on .room_name {
+    color: #F3CF80;
+}
+
 .ex_nav ul li.on {
-    border-bottom: 0.05rem solid #AF6B1B;
+    border-bottom: 0.05rem solid #F3CF80;
 }
 
 .ex_nav ul li.on .room_icon {

@@ -58,14 +58,16 @@ var VM = new Vue({
         getRoomlist: function() {
             var vm = this;
             BaseAjax.get({
-                url: baseUrl + "/api/exhibit_list",
+                url: baseUrl + "/api/exhibition_list",
                 data: {
                     p: "t"
                 },
                 success: function(res) {
                     // console.log(res.data)
-                    vm.roomlist = res.data;
-                    vm.getList();
+                    if(res.status==1){
+                        vm.roomlist = res.data;
+                        vm.getList();
+                    }
                 }
             });
         },
@@ -77,10 +79,13 @@ var VM = new Vue({
             if (vm.roomlist.length > 0) {
                 var id = vm.roomlist[vm.roomi].exhibition_id;
                 BaseAjax.get({
-                    url: baseUrl + "/api/exhibition/exhibit_list_exhibition_id",
+                    url: baseUrl + "/api/exhibit_list",
                     data: {
                         p: "t",
-                        exhibition_id: id
+                        exhibition_id: id,
+                        language:1,
+                        skip:0,
+                        take:10000
                     },
                     success: function(res) {
                         vm.list = res.data;
