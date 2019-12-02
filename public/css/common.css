@@ -451,8 +451,8 @@ a:active {
 /* 登录弹层--右侧文字提示 */
 .loginEle .right {
     position: absolute;
-    width: 5.0rem;
-    height: 4.0rem;
+    width: 7.97rem;
+    height: 4.68rem;
     top: 50%;
     margin-top: -2.0rem;
     right: 1.0rem;
@@ -460,17 +460,17 @@ a:active {
 
 
 .loginEle .right .c1 {
-    width: 4.44rem;
-    height: 2.17rem;
+    width: 7.97rem;
+    height: 4.68rem;
     padding: 0.36rem;
     background: url('../img/bg_login_tips.png') center center / 100% 100% no-repeat;
     margin: 0.65rem auto 0;
 }
 
 .loginEle .right .c1 p {
-    font-size: 0.17rem;
+    font-size: .4rem;
     margin-bottom: 0.2rem;
-    color: #FEFEFE;
+    color: #FFB95F;
     text-align: left;
 }
 
@@ -650,6 +650,7 @@ a:active {
 }
 
 
+
 /* 触摸屏内容手势滑动 */
 #contWrap {}
 
@@ -674,4 +675,12 @@ a:active {
 
 #contWrap.swiper-container .swiper-scrollbar .swiper-scrollbar-drag {
     background-color: #C8A063;
+}
+#scroll{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
 }

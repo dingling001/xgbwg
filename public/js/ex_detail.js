@@ -2,60 +2,60 @@ var VM = new Vue({
     el: "#main",
     data: {
         api_token: localStorage.getItem("api_token") || "",
-        id: Utils.getUrlKey("id") || "",
+        id: null,
         detail: {
-            imgs: [],
+            exhibit_imgs: [],
             title: "",
-            is_collected: 0,
-            collect_num: 0, //收藏数量
-            share_count: 0, //分享数量
+            is_liked: 0,
+            like_num: null,
+            share_num: null,
             content: "",
-            audio: "",
+            mp3_audio_path: "",
         },
         isshowlayer: false,
-        sharecode: null,
-        show3d: false,
-        title3d: '',
-        url3d: '',
+        sharecode: null
     },
-    created: function() {
+    created: function () {
         var vm = this;
+        vm.id = Utils.getUrlKey("id");
     },
-    mounted: function() {
+    mounted: function () {
         var vm = this;
-        vm.id && vm.getDetail();
+        if (vm.id) {
+            vm.getDetail();
+        }
     },
     methods: {
         // 获取详情
-        getDetail: function() {
+        getDetail: function () {
             var vm = this;
-            BaseAjax.get({
-                url: baseUrl + "/api/exhibition/exhibit_detail",
+            $.ajax({
+                url: baseUrl + "/api/exhibit_info",
+                type: "get",
                 data: {
-                    p: "t",
+                    p: "w",
                     exhibit_id: vm.id,
                     api_token: vm.api_token
                 },
-                success: function(res) {
-                    if (res.status == 1) {
-                        // console.log(res)
-                        vm.detail = res.data;
-                        vm.$nextTick(function() {
+                success: function (rlt) {
+                    if (rlt.status == 1) {
+                        rlt.data.mp3_audio_path = baseUrl + rlt.data.mp3_audio_path;
+                        rlt.data.audio_path = baseUrl + rlt.data.audio_path;
+                        vm.detail = rlt.data;
+                        vm.$nextTick(function () {
                             setaudio();
+                            Utils.creatScroll();
                             vm.initSwiper();
                         });
-                        setTimeout(function() {
-                            Utils.initScrollCont();
-                        }, 500)
                     }
                 },
-                error: function(err) {
-                    console.log(err);
+                error: function (rlt) {
+                    console.log(rlt);
                 }
             });
         },
-        initSwiper: function() {
-            var swiper = new Swiper('#imgWrap', {
+        initSwiper: function () {
+            var swiper = new Swiper('.swiper-container', {
                 effect: 'slide',
                 pagination: {
                     el: '.swiper-pagination',
@@ -72,56 +72,58 @@ var VM = new Vue({
             });
         },
         // 收藏-取消收藏
-        toggleCollect: function() {
+        toggleCollect: function () {
             var vm = this;
             if (!vm.api_token) {
                 $(".loginEle").show();
                 return;
             }
-            if (vm.detail.is_collected == 0) {
+            if (vm.detail.is_liked == 0) {
                 //收藏
-                BaseAjax.get({
+                $.ajax({
                     url: baseUrl + "/api/touchuser/collect_do",
+                    type: "get",
                     data: {
                         p: "t",
                         exhibit_id: vm.id,
                         api_token: vm.api_token
                     },
-                    success: function(res) {
-                        if (res.status == 1) {
-                            vm.detail.is_collected = 1;
-                            vm.detail.collect_num++;
+                    success: function (rlt) {
+                        if (rlt.status == 1) {
+                            vm.detail.is_liked = 1;
+                            vm.detail.like_num++;
                         }
                     },
-                    error: function(err) {
-                        console.log(err);
+                    error: function (rlt) {
+                        console.log(rlt);
                     }
                 });
-            } else if (vm.detail.is_collected == 1) {
+            } else if (vm.detail.is_liked == 1) {
                 //取消收藏
-                BaseAjax.get({
+                $.ajax({
                     url: baseUrl + "/api/touchuser/collect_cancel",
+                    type: "get",
                     data: {
                         p: "t",
                         exhibit_id: vm.id,
                         api_token: vm.api_token
                     },
-                    success: function(res) {
-                        if (res.status == 1) {
-                            vm.detail.is_collected = 0;
-                            if (vm.detail.collect_num > 0) {
-                                vm.detail.collect_num--;
+                    success: function (rlt) {
+                        if (rlt.status == 1) {
+                            vm.detail.is_liked = 0;
+                            if (vm.detail.like_num > 0) {
+                                vm.detail.like_num--;
                             }
                         }
                     },
-                    error: function(err) {
-                        console.log(err);
+                    error: function (rlt) {
+                        console.log(rlt);
                     }
                 });
             }
         },
         // 展品分享，显示分享二维码
-        share: function() {
+        share: function () {
             var vm = this;
             var shareurl = window.location.href.replace("detail", "detail_h5");
             $("#qrcode").empty();
@@ -134,42 +136,46 @@ var VM = new Vue({
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.H
             });
-            BaseAjax.get({
-                url: baseUrl + "/api/touchuser/exhibit_share",
+            $.ajax({
+                url: baseUrl + "/api/incr_share",
+                type: "post",
                 data: {
                     p: "t",
                     exhibit_id: vm.id
                 },
-                success: function(res) {
-                    if (res.status == 1) {
-                        vm.detail.share_count++;
+                success: function (rlt) {
+                    if (rlt.status == 1) {
+                        vm.detail.share_num++;
                     }
                 },
-                error: function(err) {
-                    console.log(err);
+                error: function (rlt) {
+                    console.log(rlt);
                 }
             });
         },
-        view3d: function() {
-            var vm = this;
-            vm.show3d = true;
-        },
         // 返回操作
-        exBack: function() {
+        exBack: function () {
             var vm = this;
-            if (Utils.getUrlKey("roomi")) {
+            // 查询字段：from=favorite【我的收藏】
+            if (Utils.getUrlKey("from") && Utils.getUrlKey("from") == "favorite") {
+                window.location.href = "../../pages/mymuseum/favorite.html";
+            } else if (Utils.getUrlKey("roomi")) {
                 window.location.href = "exhibition.html?roomi=" + Utils.getUrlKey("roomi");
             } else {
                 window.history.back();
             }
         },
+        // 缩略图
+        toThumbsimg: function (path, width, height, type) {
+            return baseUrl + toThumbsimg(path, width, height, type);
+        }
     }
 });
 // 关闭-登录-提示弹出层
-$(".loginEle .right .c2").click(function() {
+$(".loginEle .right .c2").click(function () {
     $(".loginEle").hide();
 });
 // 关闭-退出登录-提示弹出层
-$(".logoutEle .center .c2").click(function() {
+$(".logoutEle .center .c2").click(function () {
     $(".logoutEle").hide();
 });

@@ -197,10 +197,17 @@ body {
 
 .my-exhibits .cell .cell_icon {
     position: relative;
-    width: 0.4rem;
-    height: 0.5rem;
+    width: .45rem;
+    height:.55rem;
+    background: url('../img/bg_marker1.png') top center / 100% 100% no-repeat;
+    text-align: center;
+    padding: .1rem 0 0 0;
 }
-
+.my-exhibits .cell .cell_icon img{
+    width: 0.28rem;
+    height: auto;
+    border-radius: 50%;
+}
 .my-exhibits .cell .cell_icon.markerbg_1 {
     background: url('../img/bg_marker1.png') top center / 100% 100% no-repeat;
 }
@@ -247,10 +254,9 @@ body {
     height: auto;
     padding: 0.04rem 0.1rem;
     position: absolute;
-    top: 0.5rem;
+    top: .55rem;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 0.02rem;
     background-color: rgba(0, 0, 0, 0.5);
     font-size: 0.1rem;
     color: #fff;

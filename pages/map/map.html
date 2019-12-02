@@ -12,7 +12,7 @@
     <link href="../../public/lib/animate.css" type="text/css" rel="stylesheet"/>
     <link href="../../public/css/common.css" type="text/css" rel="stylesheet"/>
     <link href="../../public/css/map.css" type="text/css" rel="stylesheet"/>
-<!--    <link href="../../public/css/mapD.css" type="text/css" rel="stylesheet" />-->
+    <!--    <link href="../../public/css/mapD.css" type="text/css" rel="stylesheet" />-->
 </head>
 
 <body>
@@ -25,7 +25,7 @@
         <!--                        <span v-if="item.floor_id>0">{{ item.map_name }}</span>-->
         <!--                        <span v-else>B1</span>-->
         <!--                    </div>-->
-        <div v-if="isLoad && menus.length>0">
+        <div v-if="isLoad && menus.length">
             <div class="exhibition_name">{{menus[ind].exhibition_name}}</div>
             <div :class="['leftbtn', ind==0?'firstbtn':'']" @click="changeLeft"></div>
             <div :class="['rightbtn', ind==menus.length-1?'firstbtn':'']" @click="changeRight"></div>
@@ -46,7 +46,8 @@
 <script src="../../public/lib/vue.min.2.2.2.js"></script>
 <script src="../../public/lib/jquery.min.3.3.1.js"></script>
 <script src="../../public/lib/leaflet/leaflet.js"></script>
+<script src="../../public/js/toThumbsimg.js"></script>
 <script src="../../public/js/common.js"></script>
-<script src="../../public/js/map.js"></script>
+<script src="../../public/js/map1.js"></script>
 
 </html>
