@@ -1,17 +1,25 @@
 <!-- 顶部logo、顶部时间天气、左侧菜单 -->
 <div class="commonEle">
-    <div class="topleft animated fadeInDown"><img src="../../public/img/page_logo.png" /></div>
-<!--    <div class="topright">-->
-<!--        <div class="c1" id="time1"></div>-->
-<!--    </div>-->
+    <div class="topleft animated fadeInDown"><img src="../../public/img/page_logo.png"/></div>
+    <!--    <div class="topright">-->
+    <!--        <div class="c1" id="time1"></div>-->
+    <!--    </div>-->
     <div class="leftnav animated fadeInLeft">
         <ul>
             <li class="sub1">
                 <div class="subItem">
-                    <img src="../../public/img/bg45.png" />
+                    <img src="../../public/img/bg45.png"/>
                     <div class="name">
                         <p class="p1"></p>
                         <p class="p2"></p>
+                    </div>
+                </div>
+            </li>
+            <li class="sub21" data-href="../mymuseum/history.html">
+                <div class="subItem">
+                    <div class="name">
+                        <p class="p1">我的博物馆</p>
+                        <p class="p2">My museum</p>
                     </div>
                 </div>
             </li>
@@ -41,40 +49,40 @@
             </li>
         </ul>
     </div>
-<!--    <div class="mynav animated fadeInUp">-->
-<!--        <ul class="list">-->
-<!--            <li class="sub1">-->
-<!--                <a href="../news/list.html" class="on">-->
-<!--                    <div class="icon icon1"></div>-->
-<!--                    <span>新闻资讯</span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--            <li class="sub2">-->
-<!--                <a href="../brief/brief.html">-->
-<!--                    <div class="icon icon2"></div>-->
-<!--                    <span>场馆简介</span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--            <li class="sub3">-->
-<!--                <a href="../notice/notice.html">-->
-<!--                    <div class="icon icon3"></div>-->
-<!--                    <span>参观攻略</span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--            <li class="sub4">-->
-<!--                <a href="../3d/3d_list.html">-->
-<!--                    <div class="icon icon4"></div>-->
-<!--                    <span>3D文物</span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--            <li class="sub5">-->
-<!--                <a href="../mymuseum/mymuseum.html">-->
-<!--                    <div class="icon icon5"></div>-->
-<!--                    <span>我的博馆物</span>-->
-<!--                </a>-->
-<!--            </li>-->
-<!--        </ul>-->
-<!--    </div>-->
+    <!--    <div class="mynav animated fadeInUp">-->
+    <!--        <ul class="list">-->
+    <!--            <li class="sub1">-->
+    <!--                <a href="../news/list.html" class="on">-->
+    <!--                    <div class="icon icon1"></div>-->
+    <!--                    <span>新闻资讯</span>-->
+    <!--                </a>-->
+    <!--            </li>-->
+    <!--            <li class="sub2">-->
+    <!--                <a href="../brief/brief.html">-->
+    <!--                    <div class="icon icon2"></div>-->
+    <!--                    <span>场馆简介</span>-->
+    <!--                </a>-->
+    <!--            </li>-->
+    <!--            <li class="sub3">-->
+    <!--                <a href="../notice/notice.html">-->
+    <!--                    <div class="icon icon3"></div>-->
+    <!--                    <span>参观攻略</span>-->
+    <!--                </a>-->
+    <!--            </li>-->
+    <!--            <li class="sub4">-->
+    <!--                <a href="../3d/3d_list.html">-->
+    <!--                    <div class="icon icon4"></div>-->
+    <!--                    <span>3D文物</span>-->
+    <!--                </a>-->
+    <!--            </li>-->
+    <!--            <li class="sub5">-->
+    <!--                <a href="../mymuseum/mymuseum.html">-->
+    <!--                    <div class="icon icon5"></div>-->
+    <!--                    <span>我的博馆物</span>-->
+    <!--                </a>-->
+    <!--            </li>-->
+    <!--        </ul>-->
+    <!--    </div>-->
 </div>
 <!-- 登录提示弹出层 -->
 <div class="loginEle animated zoomIn">
@@ -92,11 +100,11 @@
     </div>
     <!-- 158:SP117F9863890 -->
     <!-- 线上:SP22818105055 -->
-    <!-- <a href="../common/loading.html?deviceId=SP22818105055">
+    <a href="../common/loading.html?deviceId=SP22818104645">
         <button style=" padding: 0 0.1rem; position: absolute; top: 0.3rem; left: 0.3rem; font-size: 0.2rem; line-height: 2; color: #f00;">
             测试登录
         </button>
-    </a> -->
+    </a>
 </div>
 <!-- 退出登录提示弹出层 -->
 <div class="logoutEle animated zoomIn">
@@ -106,55 +114,58 @@
     </div>
 </div>
 <script>
-$(function() {
-    // 初始化登录信息
-    var api_token = localStorage.getItem("api_token");
-    var name = localStorage.getItem("name");
-    if (api_token && name) {
-        $(".leftnav ul li.sub1 img").attr("src", "../../public/img/bg46.png");
-        $(".leftnav ul li.sub1 .p1").text(name);
-        $(".leftnav ul li.sub1 .p2").text("退出");
-        $(".mynav ul li.sub5").css('display', 'flex');
-    } else {
-        $(".leftnav ul li.sub1 img").attr("src", "../../public/img/bg45.png");
-        $(".leftnav ul li.sub1 .p1").text("游客").addClass('nologin');
-        $(".leftnav ul li.sub1 .p2").text("绑定 / 登录").addClass('nologin');
-        $(".mynav ul li.sub5").css('display', 'none');
-    }
-
-    $(".leftnav ul li.on").animate({
-            opacity: 1
-        },
-        800,
-        function() {
-            $(this).addClass("effect");
-        }
-    );
-
-    // 菜单跳转
-    $(".leftnav ul li").click(function() {
-        var i = $(this).index();
-        if (i == 0) return;
-        var href = $(this).attr("data-href");
-        window.location.href = href;
-    });
-
-    // 登录-退出登录
-    $(".leftnav ul li.sub1 .p2").click(function() {
+    $(function () {
+        // 初始化登录信息
+        var api_token = localStorage.getItem("api_token");
+        var name = localStorage.getItem("name");
         if (api_token && name) {
-            $(".logoutEle").show();
+            $(".leftnav ul li.sub1 img").attr("src", localStorage.avatar || "../../public/img/bg46.png");
+            $(".leftnav ul li.sub1 .p1").text(name);
+            $(".leftnav ul li.sub1 .p2").text("退出");
+            $(".mynav ul li.sub5").css('display', 'flex');
+            $('.sub21').show()
+            $('.leftnav').css({'top': 1.6 + 'rem'})
         } else {
-            $(".loginEle").show();
+            $(".leftnav ul li.sub1 img").attr("src", "../../public/img/bg45.png");
+            $(".leftnav ul li.sub1 .p1").text("游客").addClass('nologin');
+            $(".leftnav ul li.sub1 .p2").text("绑定 / 登录").addClass('nologin');
+            $(".mynav ul li.sub5").css('display', 'none');
+            $('.sub21').hide()
         }
-    });
 
-    // 关闭-登录-提示弹出层
-    $(".loginEle .right .c2").click(function() {
-        $(".loginEle").hide();
+        $(".leftnav ul li.on").animate({
+                opacity: 1
+            },
+            800,
+            function () {
+                $(this).addClass("effect");
+            }
+        );
+
+        // 菜单跳转
+        $(".leftnav ul li").click(function () {
+            var i = $(this).index();
+            if (i == 0) return;
+            var href = $(this).attr("data-href");
+            window.location.href = href;
+        });
+
+        // 登录-退出登录
+        $(".leftnav ul li.sub1 .p2").click(function () {
+            if (api_token && name) {
+                $(".logoutEle").show();
+            } else {
+                $(".loginEle").show();
+            }
+        });
+
+        // 关闭-登录-提示弹出层
+        $(".loginEle .right .c2").click(function () {
+            $(".loginEle").hide();
+        });
+        // 关闭-退出登录-提示弹出层
+        $(".logoutEle .center .c2").click(function () {
+            $(".logoutEle").hide();
+        });
     });
-    // 关闭-退出登录-提示弹出层
-    $(".logoutEle .center .c2").click(function() {
-        $(".logoutEle").hide();
-    });
-});
 </script>

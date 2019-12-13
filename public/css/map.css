@@ -205,7 +205,7 @@ body {
 }
 .my-exhibits .cell .cell_icon img{
     width: 0.28rem;
-    height: auto;
+    height: .28rem;
     border-radius: 50%;
 }
 .my-exhibits .cell .cell_icon.markerbg_1 {

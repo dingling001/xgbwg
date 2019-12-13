@@ -11,6 +11,7 @@ var VM = new Vue({
         isLayer: false, //列表弹层
         isLayerDe: false, //详情弹层
         currentIdx: 0,
+        showdata: false
         // 弹层中的展厅列表
         // layerList: [{
         //         exhibit_id: 11,
@@ -26,13 +27,13 @@ var VM = new Vue({
         //     },
         // ],
     },
-    created: function() {
+    created: function () {
         var vm = this;
         if (Utils.getUrlKey("roomi")) {
             vm.roomi = Utils.getUrlKey("roomi");
         }
     },
-    mounted: function() {
+    mounted: function () {
         var vm = this;
         vm.getLeftMenu();
         vm.getRoomlist();
@@ -41,11 +42,11 @@ var VM = new Vue({
         /**
          * @获取左侧菜单
          */
-        getLeftMenu: function() {
+        getLeftMenu: function () {
             // 加载公共元素：logo、左侧菜单
             BaseAjax.get({
                 url: "../common/nav.html",
-                success: function(res) {
+                success: function (res) {
                     $(".main").prepend(res);
                     $(".leftnav").find(".sub3").addClass("on");
                     Utils.setLoctime();
@@ -55,16 +56,16 @@ var VM = new Vue({
         /**
          * @获取底部展厅列表导航
          */
-        getRoomlist: function() {
+        getRoomlist: function () {
             var vm = this;
             BaseAjax.get({
                 url: baseUrl + "/api/exhibition_list",
                 data: {
                     p: "t"
                 },
-                success: function(res) {
+                success: function (res) {
                     // console.log(res.data)
-                    if(res.status==1){
+                    if (res.status == 1) {
                         vm.roomlist = res.data;
                         vm.getList();
                     }
@@ -74,7 +75,7 @@ var VM = new Vue({
         /**
          * @获取当前展厅展品列表
          */
-        getList: function() {
+        getList: function () {
             var vm = this;
             if (vm.roomlist.length > 0) {
                 var id = vm.roomlist[vm.roomi].exhibition_id;
@@ -83,15 +84,16 @@ var VM = new Vue({
                     data: {
                         p: "t",
                         exhibition_id: id,
-                        language:1,
-                        skip:0,
-                        take:10000
+                        language: 1,
+                        skip: 0,
+                        take: 10000
                     },
-                    success: function(res) {
-                        vm.list = res.data;
+                    success: function (res) {
+                        vm.showdata = true;
+                        vm.list = res.data.exhibit_list;
                         // console.log(res.data)
-                        if (res.data.length) {
-                            vm.$nextTick(function() {
+                        if (res.data.exhibit_list.length) {
+                            vm.$nextTick(function () {
                                 vm.initMainSwiper();
                             })
                         }
@@ -99,23 +101,33 @@ var VM = new Vue({
                 })
             }
         },
-        initMainSwiper: function() {
+        initMainSwiper: function () {
+            var vm = this;
+            // 馆藏精品swiper双向控制
             var mySwiper1 = new Swiper("#mySwiper1", {
-                freeMode : true,
                 slidesPerView: 'auto',
-                centeredSlides: false,
+                centeredSlides: true,
                 observer: true,
                 observeParents: true,
             });
+            var mySwiper2 = new Swiper("#mySwiper2", {
+                slidesPerView: "auto",
+                centeredSlides: true,
+                centerInsufficientSlides: true,
+                observer: true,
+                observeParents: true,
+            });
+            mySwiper1.controller.control = mySwiper2;
+            mySwiper2.controller.control = mySwiper1;
         },
         // 切换展厅
-        changeRoom: function(i) {
+        changeRoom: function (i) {
             var vm = this;
             vm.roomi = i;
             vm.getList();
         },
         // 点击展品查看详情
-        clickEx: function(i) {
+        clickEx: function (i) {
             var vm = this;
             var id = vm.list[i].exhibit_id;
             window.location.href = "detail.html?roomi=" + vm.roomi + "&id=" + id;

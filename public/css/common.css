@@ -69,8 +69,8 @@ li {
 }
 
 img {
-    /*width: 100%;*/
-    height: 100%;
+    width: 100%;
+    /*height: 100%;*/
     vertical-align: top;
     border: none;
 }
@@ -235,19 +235,20 @@ a:active {
 
 .commonEle .leftnav ul li.sub1 .subItem .p1 {
     line-height: 1.5;
-    color: #FFB95F;
+    color: #fff;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .commonEle .leftnav ul li.sub1 .subItem .p1.nologin{
-    color: #fff;
+    color: #FFB95F;
     font-size: .3rem;
 }
 .commonEle .leftnav ul li.sub1 .subItem .p2 {
     display: block;
-    /*width: 0.8rem;*/
+    width: 1.72rem;
     /*height: 0.2rem;*/
+    line-height: .45rem;
     margin-top: 0.05rem;
     border-radius: 0.15rem;
     border: 0.005rem solid #d49f63;
@@ -255,11 +256,18 @@ a:active {
     font-size: 0.24rem;
     /*line-height: 1.5;*/
     text-align: center;
-    background-color: #AF6B1B;
+    /*background-color: #AF6B1B;*/
 }
 .commonEle .leftnav ul li.sub1 .subItem .p2.nologin{
     border: 0;
     background: none;
+}
+.commonEle .leftnav ul li.sub21 .subItem:before {
+    background-image: url(../img/bg22.png);
+}
+
+.commonEle .leftnav ul li.sub21.on .subItem:before {
+    background-image: url(../img/bg21.png);
 }
 
 .commonEle .leftnav ul li.sub2 .subItem:before {
@@ -619,7 +627,7 @@ a:active {
     width: 0.96rem;
     height: 0.36rem;
     margin: 0 auto;
-    background: url('../../public/img/btn_refresh.png') center center / 100% 100% no-repeat;
+    /*background: url('../../public/img/btn_refresh.png') center center / 100% 100% no-repeat;*/
 }
 
 

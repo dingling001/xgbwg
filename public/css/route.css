@@ -1,0 +1,99 @@
+.leftMap {
+    width: 6.5rem;
+    height: 4.2rem;
+    overflow: hidden;
+}
+
+
+.rightFloor {
+    position: absolute;
+    top: 48%;
+    right: 0.2rem;
+    transform: translateY(-50%);
+}
+
+.rightFloor .item {
+    width: 0.36rem;
+    height: 0.36rem;
+    transition: all 0.12s ease-in-out;
+    cursor: pointer;
+}
+
+.rightFloor .item+.item {
+    margin-top: 0.3rem;
+}
+
+.rightFloor .item span {
+    display: block;
+    width: 100%;
+    line-height: 0.36rem;
+    color: #BBBBBB;
+    background-color: #fff;
+    font-size: 0.18rem;
+    text-align: center;
+    border-radius: 0.02rem;
+}
+
+.rightFloor .item.active span {
+    color: #fff;
+    background-color: #AD2229;
+}
+
+
+/*点位样式*/
+.my-exhibits {
+    width: 0 !important;
+    height: 0 !important;
+    margin-left: auto !important;
+    margin-top: auto !important;
+    position: relative;
+}
+
+.my-exhibits .cell {
+    width: 0.32rem;
+    height: 0.4rem;
+    position: absolute;
+    bottom: 0;
+    left: -0.15rem;
+    cursor: pointer;
+}
+
+.my-exhibits .cell .cell_icon {
+    position: relative;
+    width: 0.4rem;
+    height: 0.5rem;
+    background: url('../images/bg_marker.png') top center / 100% 100% no-repeat;
+}
+
+.my-exhibits .cell .cell_icon img {
+    display: block;
+    width: 0.26rem;
+    height: 0.26rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.06rem;
+    left: 50%;
+    margin-left: -0.12rem;
+    vertical-align: middle;
+}
+
+.my-exhibits .cell .cell_title {
+    width: auto;
+    max-width: 0.6rem;
+    min-width: 0.3rem;
+    height: auto;
+    padding: 0.02rem 0.05rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.02rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 0.08rem;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

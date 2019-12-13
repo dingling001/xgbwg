@@ -23,7 +23,7 @@
     <!-- 主体轮播 -->
     <div class="ex_list">
         <!-- 大图 -->
-        <div v-if="list.length">
+        <div v-if="showdata&&list.length">
             <div class="top">
                 <div class="swiper-container" id="mySwiper1">
                     <div class="swiper-wrapper">
@@ -31,7 +31,7 @@
                             <div class="img">
                                 <img :src="a.exhibit_list_img"/>
                             </div>
-                            <div class="title">{{ a.title }}</div>
+                            <div class="title">{{ a.exhibit_name }}</div>
                         </div>
                     </div>
                 </div>
@@ -47,8 +47,8 @@
                 </div>
             </div>
         </div>
-        <div class="no_data" v-else>
-            <img src="../../public/images/icon_nodata.png">
+        <div class="no_data" v-if="showdata&&list.length==0">
+            <img src="../../public/img/icon_nodata.png">
             <div class="tips">暂无数据</div>
         </div>
     </div>
@@ -68,7 +68,7 @@
             <div class="list-header">
                 <div class="left">展厅列表</div>
                 <div class="right">
-                    <img src="../../public/images/btn_close.png" @click.stop="isLayer=false" alt=""/>
+                    <img src="../../public/img/btn_close.png" @click.stop="isLayer=false" alt=""/>
                 </div>
             </div>
             <ul class="list-body">
@@ -86,9 +86,9 @@
     <div class="list-wrapper" v-if="isLayerDe">
         <div class="list">
             <div class="list-header">
-                <div class="left" @click="goBack"><img src="../../public/images/btn_back.png">返回</div>
+                <div class="left" @click="goBack"><img src="../../public/img/btn_back.png">返回</div>
                 <div class="right">
-                    <img src="../../public/images/btn_close.png" @click.stop="isLayerDe=false" alt=""/>
+                    <img src="../../public/img/btn_close.png" @click.stop="isLayerDe=false" alt=""/>
                 </div>
             </div>
             <div class="list-body">

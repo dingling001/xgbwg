@@ -6,7 +6,7 @@
     <meta name="renderer" content="webkit" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
-    <title>嘉善博物馆</title>
+    <title>孝感市文化中心博物馆</title>
     <link href="../../public/lib/animate.css" type="text/css" rel="stylesheet" />
     <link href="../../public/css/common.css" type="text/css" rel="stylesheet" />
     <style>
@@ -142,7 +142,7 @@ $(function() {
 
     function login(id) {
         BaseAjax.post({
-            url: baseUrl + "/api/touchuser/login",
+            url: baseUrl + "/api/users/login",
             data: {
                 p: "t",
                 deviceId: id
@@ -152,11 +152,13 @@ $(function() {
                     localStorage.setItem("api_token", rlt.data.api_token);
                     localStorage.setItem("name", rlt.data.name);
                     localStorage.setItem("rent_time", rlt.data.rent_time);
+                    localStorage.setItem("avatar", rlt.data.avatar);
+
                     setTimeout(function() {
                         $(".login_success").show();
                         $(".layer").stop().fadeIn();
                         setTimeout(function() {
-                            window.location.href = "../map/map.html";
+                            window.location.href = "../mymuseum/history.html";
                         }, 2000);
                     }, 2000);
                 } else {
