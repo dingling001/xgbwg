@@ -19,8 +19,11 @@
     -ms-user-select: none;
     -moz-user-select: none;
     user-select: none;
-}
 
+}
+*::-webkit-scrollbar{
+    display: none;
+}
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
 /*定义滚动条轨道 内阴影+圆角*/
 /*定义滑块 内阴影+圆角*/
@@ -503,9 +506,9 @@ a:active {
 }
 
 .logoutEle .center {
-    width: 4.1rem;
-    height: 2.4rem;
-    padding: 0.5rem 0.3rem;
+    width: 7rem;
+    height: 4.52rem;
+    padding: .8rem 0.3rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -514,19 +517,19 @@ a:active {
 }
 
 .logoutEle .center p {
-    font-size: 0.2rem;
+    font-size: 0.54rem;
     text-align: center;
     color: #FFB95F;
 }
 
 .logoutEle .center a.c1 {
     display: block;
-    width: 0.4rem;
-    height: 0.8rem;
+    width: 0.76rem;
+    height:1.45rem;
     padding: 0.2rem 0.1rem 0;
     position: absolute;
-    bottom: 0.3rem;
-    left: 1.3rem;
+    bottom: .59rem;
+    left: 1.84rem;
     background: url(../img/ok.png) center center / 100% 100% no-repeat;
     font-size: 0.15rem;
     color: #fff;
@@ -535,16 +538,19 @@ a:active {
 
 .logoutEle .center a.c2 {
     display: block;
-    width: 0.4rem;
-    height: 0.8rem;
+    width: 0.76rem;
+    height:1.45rem;
     padding: 0.2rem 0.1rem 0;
     position: absolute;
-    bottom: 0.3rem;
-    right: 1.3rem;
+    bottom: .59rem;
+    right: 1.84rem;
     background: url(../img/cancel.png) center center / 100% 100% no-repeat;
     font-size: 0.15rem;
     color: #fff;
     text-align: center;
+}
+.logoutEle .center a:active{
+    opacity: .7;
 }
 
 /*公共板块-返回首页倒计时*/

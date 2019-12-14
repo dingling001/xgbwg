@@ -13,11 +13,11 @@ body {
 
 /*我的博物馆 - 内容区*/
 .museum {
-    width: 14.46rem;
+    width: 14.92rem;
     height: 7.57rem;
     position: absolute;
     top: 55%;
-    left: 4.59rem;
+    left: 4.06rem;
     transform: translateY(-50%);
 }
 
@@ -121,7 +121,7 @@ body {
     background-repeat: no-repeat;
     background-position: top center;
     background-size: auto 0.53rem;
-    margin:.21rem  0 0 0;
+    margin: .21rem 0 0 0;
 }
 
 .mynav ul li a .sub1 {

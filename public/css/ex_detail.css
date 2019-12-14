@@ -109,6 +109,11 @@ body {
     position: relative;
     overflow: hidden;
 }
+.main .detail .intro .inner #scroll_content{
+    font-size: 0.26rem;
+    line-height: 180%;
+    color: #FFB95F;
+}
 
 .main .detail .intro .inner p {
     text-indent: 2em;

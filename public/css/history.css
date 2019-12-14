@@ -1,16 +1,18 @@
 @charset "utf-8";
-
+.museum{
+    top: 50%;
+}
 .history {
     width: 100%;
-    height: 100%;
+    height: 6.1rem;
     overflow: hidden;
     position: relative;
 }
 
 .history ul {
-    width: 8rem;
+    width: 12.4rem;
     height: 100%;
-    margin: 0 auto;
+    margin: 0  auto 0 2.6rem;
     padding: 0.3rem 0;
     overflow-y: auto;
     position: relative;
@@ -18,8 +20,8 @@
 
 .history ul li {
     float: left;
-    width: 0.9rem;
-    height: 1.22rem;
+    width:1.5rem;
+    height: 1.5rem;
     position: relative;
 }
 
@@ -54,22 +56,29 @@
 
 
 .history ul li .img {
-    width: 0.6rem;
-    height: 0.7rem;
+    width: 0.98rem;
+    height: 0.98rem;
     position: absolute;
-    top: 0.1rem;
-    left: 0.15rem;
-    background: url('../img/bg_history_point.png') top center / 100% 100% no-repeat;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    /*left: 0.15rem;*/
+    border-radius: 50%;
+    border:5px solid #F3CF80;
+    text-align: center;
+    /*background: url('../img/bg_history_point.png') top center / 100% 100% no-repeat;*/
 }
 
 .history ul li .img img {
-    position: absolute;
-    bottom: 0.05rem;
+    /*position: absolute;*/
+    /*bottom: 0.05rem;*/
     display: block;
-    width: 0.52rem;
-    height: 0.52rem;
-    left: 50%;
-    margin-left: -0.26rem;
+    width: 100%;
+    /*height: 0.52rem;*/
+    /*left: 50%;*/
+    /*margin-left: -0.26rem;*/
     border-radius: 50%;
     outline: none;
     z-index: 999;
@@ -89,7 +98,7 @@
     display: block;
     content: " ";
     width: 100%;
-    height: 0.04rem;
+    height: 0.015rem;
     position: absolute;
     top: -0.01rem;
     left: 0;
@@ -102,14 +111,14 @@
 /* 去除右半部分 */
 .history ul li:nth-child(8n):before,
 .history ul li:nth-child(8n + 1):before {
-    width: 0.45rem;
+    width: 1.2rem;
     margin-left: 0;
 }
 
 /* 去除左半部分 */
 .history ul li:nth-child(16n):before,
 .history ul li:nth-child(16n + 1):before {
-    width: 0.45rem;
+    width: 1.2rem;
     margin-left: 0.45rem;
 }
 
@@ -131,7 +140,7 @@
 }
 
 .history ul li.fl_first {
-    margin-left: 0.4rem;
+    /*margin-left: 0.4rem;*/
 }
 
 .history ul li.fr_first {
@@ -143,27 +152,28 @@
     display: block;
     content: " ";
     width: 0.55rem;
-    height: 1.25rem;
+    height: 1.51rem;
     position: absolute;
-    top: -0.015rem;
+    /*top: -0.015rem;*/
 }
 
 .history ul li:nth-child(8n):after {
-    left: 0.45rem;
+    left:1.1rem;
     right: auto;
     background-image: url('../img/icon_history_circle.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    transform: rotate(180deg);
+    /*transform: rotate(180deg);*/
 }
 
 .history ul li:nth-child(16n):after {
     left: auto;
-    right: 0.45rem;
+    right: .9rem;
     background-image: url('../img/icon_history_circle.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    transform: rotate(0deg);
+    /*transform: rotate(0deg);*/
+    transform: rotate(180deg);
 }
 
 .history ul li:nth-child(1):after,

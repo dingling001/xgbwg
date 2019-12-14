@@ -78,41 +78,26 @@ var VM = new Vue({
                 $(".loginEle").show();
                 return;
             }
-            if (vm.detail.is_liked == 0) {
                 //收藏
                 $.ajax({
-                    url: baseUrl + "/api/touchuser/collect_do",
+                    url: baseUrl + "/api/do_like",
                     type: "get",
                     data: {
                         p: "t",
                         exhibit_id: vm.id,
+                        type:2,
                         api_token: vm.api_token
                     },
                     success: function (rlt) {
                         if (rlt.status == 1) {
-                            vm.detail.is_liked = 1;
-                            vm.detail.like_num++;
-                        }
-                    },
-                    error: function (rlt) {
-                        console.log(rlt);
-                    }
-                });
-            } else if (vm.detail.is_liked == 1) {
-                //取消收藏
-                $.ajax({
-                    url: baseUrl + "/api/touchuser/collect_cancel",
-                    type: "get",
-                    data: {
-                        p: "t",
-                        exhibit_id: vm.id,
-                        api_token: vm.api_token
-                    },
-                    success: function (rlt) {
-                        if (rlt.status == 1) {
-                            vm.detail.is_liked = 0;
-                            if (vm.detail.like_num > 0) {
-                                vm.detail.like_num--;
+                            if (vm.detail.is_collection == 0) {
+                                vm.detail.is_collection = 1;
+                                vm.detail.collection_num++;
+                            }else{
+                                vm.detail.is_collection = 0;
+                                if (vm.detail.collection_num > 0) {
+                                    vm.detail.collection_num--;
+                                }
                             }
                         }
                     },
@@ -120,7 +105,6 @@ var VM = new Vue({
                         console.log(rlt);
                     }
                 });
-            }
         },
         // 展品分享，显示分享二维码
         share: function () {

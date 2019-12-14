@@ -118,8 +118,9 @@
         // 初始化登录信息
         var api_token = localStorage.getItem("api_token");
         var name = localStorage.getItem("name");
+        var avatar = localStorage.getItem('avatar');
         if (api_token && name) {
-            $(".leftnav ul li.sub1 img").attr("src", localStorage.avatar || "../../public/img/bg46.png");
+            $(".leftnav ul li.sub1 img").attr("src", avatar || "../../public/img/bg46.png");
             $(".leftnav ul li.sub1 .p1").text(name);
             $(".leftnav ul li.sub1 .p2").text("退出");
             $(".mynav ul li.sub5").css('display', 'flex');

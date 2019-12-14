@@ -12,7 +12,8 @@
 }
 
 .swiper-slide {
-    width: 8rem;
+    /*width: 14.46rem;*/
+    width: 7.42rem;
 }
 
 .my_swiper {
@@ -23,20 +24,22 @@
 
 .my_swiper li {
     position: relative;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.78rem;
+    height: 1.78rem;
     float: left;
     margin-top: 0.2rem;
 }
 
 .my_swiper li+li {
-    margin-left: 0.15rem;
+    margin-left: 0.1rem;
 }
 
-.my_swiper li:nth-of-type(6n+1) {
+.my_swiper li:nth-of-type(4n) {
     margin-left: 0 !important;
 }
-
+.my_swiper li:nth-of-type(4n+1) {
+    margin-left: 0 !important;
+}
 .my_swiper li .title {
     width: 100%;
     position: absolute;
@@ -51,16 +54,18 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    /*color: #7A7768;*/
 }
 
 .my_swiper li .title .date {
     width: 100%;
-    font-size: 0.1rem;
-    height: 0.2rem;
-    line-height: 0.2rem;
+    font-size: 0.3rem;
+    font-weight: bold;
+    line-height: 0.4rem;
     text-align: left;
     padding: 0 0.1rem;
-    background: rgba(0, 0, 0, 0.7);
+    /*color: #7A7768;*/
+    /*background: rgba(0, 0, 0, 0.7);*/
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;

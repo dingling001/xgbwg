@@ -41,7 +41,7 @@
 <!--                                    2014年9月1日，被列入民政部公布的第一批300名著名抗日英烈和英雄群体名录。-->
 <!--                                    1913年秋天，冯玉祥在河南招兵。不满18岁的吉鸿昌瞒着家里到堰城投军。他因吃苦耐劳、智勇正直被冯玉祥赏识，被送入模范连当学兵，不久提升为手枪连连长，尔后又提升为营长。</p>-->
                             </div>
-                            <div  v-eles><p>暂无简介</p></div>
+                            <div  v-else><p>暂无简介</p></div>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                     </audio> -->
                 </div>
                 <ul class="right">
-                    <li class="like" @click="toggleCollect"><span :class="{'on':detail.is_like==1}"></span>{{ detail.like_num }}</li>
+                    <li class="like" @click="toggleCollect"><span :class="{'on':detail.is_collection==1}"></span>{{ detail.collection_num }}</li>
                     <li class="share" @click="share"><span></span>{{ detail.share_num }}</li>
                 </ul>
             </div>

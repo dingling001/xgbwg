@@ -2,14 +2,29 @@ var VM = new Vue({
     el: "#main",
     data: {
         api_token: localStorage.getItem("api_token") || "",
-        curT: 0,
-        menus: [{ png_map_path: "" }],
-        imgWidth: 3720, //图片像素宽
-        imgHeight: 2560, //图片像素高
+        // curT: 0,
+        // menus: [{ png_map_path: "" }],
+        // imgWidth: 3720, //图片像素宽
+        // imgHeight: 2560, //图片像素高
+        // myMap: null,
+        // imageOverlay: null,
+        // myLayerGroup: null,
+        // exhibitInfo: "",
+
+        ind: 0,
+        // menus: [{png_map_path: ""}],
+        menus: [],
+        imgUrl: "",
+        imgWidth: 2000, //图片像素宽
+        imgHeight: 2000, //图片像素高
+        floor: "",
+        name: "",
         myMap: null,
         imageOverlay: null,
         myLayerGroup: null,
-        exhibitInfo: ""
+        lists: [],
+        isLoad: false,
+        map_path: ''
     },
     created: function() {
         this.myLayerGroup = new L.LayerGroup();
@@ -75,7 +90,7 @@ var VM = new Vue({
                 vm.curT = idx;
             });
             $.ajax({
-                url: baseUrl + "/api/touchuser/visit_road",
+                url: baseUrl + "/api/visit_road",
                 type: "get",
                 data: {
                     p: "t",

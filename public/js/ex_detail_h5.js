@@ -3,7 +3,7 @@ var VM = new Vue({
     data: {
         id: null,
         detail: {
-            imgs: [],
+            exhibit_imgs: [],
             title: "",
             content: "",
             audio: ""
@@ -26,9 +26,10 @@ var VM = new Vue({
         getDetail: function() {
             var vm = this;
             BaseAjax.get({
-                url: baseUrl + "/api/exhibition/exhibit_detail",
+                url: baseUrl + "/api/exhibit_info",
                 data: {
-                    p: "wx",
+                    p: "t",
+                    language:1,
                     exhibit_id: vm.id
                 },
                 success: function(res) {

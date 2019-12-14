@@ -116,6 +116,7 @@ var VM = new Vue({
                 centerInsufficientSlides: true,
                 observer: true,
                 observeParents: true,
+                slideToClickedSlide:true
             });
             mySwiper1.controller.control = mySwiper2;
             mySwiper2.controller.control = mySwiper1;

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport"
           content="width=device-width,height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
-    <title>游览历史 - 吉鸿昌纪念馆</title>
+    <title>游览历史 - 孝感市文化中心博物馆</title>
     <link href="../../public/lib/animate.css" type="text/css" rel="stylesheet"/>
     <link href="../../public/css/common.css" type="text/css" rel="stylesheet"/>
     <link href="../../public/css/mymuseum_common.css" type="text/css" rel="stylesheet"/>
@@ -18,7 +18,7 @@
 <div class="main" id="main" v-cloak>
     <!-- 此处加载公共nav -->
     <div class="museum">
-        <div class="history" v-if="list.length>0">
+        <div class="history animated slideInRight" v-if="list.length>0">
             <div id="scroll">
                 <div id="scroll_content">
                     <ul>
@@ -26,14 +26,14 @@
                             :class="{'fleft':i%16<8,'fright':i%16>=8,'no':i%8==0&&i==list.length-1,'fl_first':i%16<8&&i%8==0,'fr_first':i%16==8}">
                             <div class="time">{{ a.time | time }}</div>
                             <div class="img" @click.stop="clkEx(i)">
-                                <img :src="toThumbsimg(a.img,200,200,33)"/>
+                                <img :src="a.img"/>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="no_data" v-else>
+        <div class="no_data  animated zoomIn" v-else>
 <!--            <img src="../../public/img/icon_nodata.png">-->
             <div class="tips">
                 <p class="p">您的智慧笔浏览历史为空</p>
@@ -41,7 +41,7 @@
                 <p>中心博物馆之旅吧！</p></div>
         </div>
     </div>
-    <div class="mynav animated fadeInUp">
+    <div class="mynav animated slideInUp">
         <ul class="list">
             <li>
                 <a href="history.html" class="on">
