@@ -21,9 +21,11 @@
     user-select: none;
 
 }
-*::-webkit-scrollbar{
+
+*::-webkit-scrollbar {
     display: none;
 }
+
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
 /*定义滚动条轨道 内阴影+圆角*/
 /*定义滑块 内阴影+圆角*/
@@ -62,9 +64,11 @@ body {
     position: absolute;
     top: 0;
 }
+
 body {
     background: url(../img/allbg.png) center top / 100% 100% no-repeat;
 }
+
 ul,
 ol,
 li {
@@ -89,7 +93,8 @@ a:active {
 }
 
 /* 公共板块-左侧导航*/
-.commonEle {}
+.commonEle {
+}
 
 /*顶部logo*/
 .commonEle .topleft {
@@ -109,11 +114,65 @@ a:active {
     right: 0.5rem;
 }
 
-.commonEle .topright .c1 {
-    font-size: 0.32rem;
+.commonEle .topright > span {
+    float: left;
     color: #fff;
 }
 
+.commonEle .topright .c1 {
+    font-size: 0.32rem;
+    color: #fff;
+    line-height: .66rem;
+    margin-right: 20px;
+    display: none;
+}
+
+.rent_box {
+    font-size: 0.17rem;
+    color: #fff;
+    float: left;
+    display: none;
+    height: .66rem;
+    margin-right: 1rem;
+}
+
+.rent_box li {
+    font-size: 0.17rem;
+    color: #fff;
+    line-height: .33rem;
+    padding: 0 .16rem;
+    border-left: 1px solid #fff;
+}
+
+.time {
+    font-size: .57rem;
+    padding: 0 .21rem;
+    /*border-right: 1px solid #fff;*/
+}
+
+.rent_time {
+    font-size: .17rem;
+}
+
+.rent_time span {
+    font-size: .17rem;
+}
+
+.temp {
+    font-size: .35rem;
+    line-height: .66rem;
+    margin-right: .2rem;
+}
+
+.weather_img {
+    width: .62rem;
+    height: .62rem;
+    display: inline-block;
+}
+
+.weather_img img {
+    width: 100%;
+}
 
 /*左侧菜单*/
 .commonEle .leftnav {
@@ -166,7 +225,7 @@ a:active {
     /*padding-left: .38rem;*/
     top: 54%;
     transform: translateY(-50%);
-   width: 100%;
+    width: 100%;
     /*height: 0.7rem;*/
     height: 1.03rem;
 }
@@ -197,7 +256,8 @@ a:active {
     width: 2.06rem;
     transform: translateY(-50%);
 }
-.commonEle .leftnav ul li.sub1 .subItem .name{
+
+.commonEle .leftnav ul li.sub1 .subItem .name {
     width: 1.99rem;
     left: 1.03rem;
 }
@@ -243,10 +303,12 @@ a:active {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.commonEle .leftnav ul li.sub1 .subItem .p1.nologin{
+
+.commonEle .leftnav ul li.sub1 .subItem .p1.nologin {
     color: #FFB95F;
     font-size: .3rem;
 }
+
 .commonEle .leftnav ul li.sub1 .subItem .p2 {
     display: block;
     width: 1.72rem;
@@ -261,10 +323,12 @@ a:active {
     text-align: center;
     /*background-color: #AF6B1B;*/
 }
-.commonEle .leftnav ul li.sub1 .subItem .p2.nologin{
+
+.commonEle .leftnav ul li.sub1 .subItem .p2.nologin {
     border: 0;
     background: none;
 }
+
 .commonEle .leftnav ul li.sub21 .subItem:before {
     background-image: url(../img/bg22.png);
 }
@@ -525,7 +589,7 @@ a:active {
 .logoutEle .center a.c1 {
     display: block;
     width: 0.76rem;
-    height:1.45rem;
+    height: 1.45rem;
     padding: 0.2rem 0.1rem 0;
     position: absolute;
     bottom: .59rem;
@@ -539,7 +603,7 @@ a:active {
 .logoutEle .center a.c2 {
     display: block;
     width: 0.76rem;
-    height:1.45rem;
+    height: 1.45rem;
     padding: 0.2rem 0.1rem 0;
     position: absolute;
     bottom: .59rem;
@@ -549,7 +613,8 @@ a:active {
     color: #fff;
     text-align: center;
 }
-.logoutEle .center a:active{
+
+.logoutEle .center a:active {
     opacity: .7;
 }
 
@@ -659,14 +724,14 @@ a:active {
     color: #C8A063;
 }
 
-.no_data .tips p+p {
+.no_data .tips p + p {
     margin-top: 0.1rem;
 }
 
 
-
 /* 触摸屏内容手势滑动 */
-#contWrap {}
+#contWrap {
+}
 
 #contWrap.swiper-container {
     width: 100%;
@@ -690,7 +755,8 @@ a:active {
 #contWrap.swiper-container .swiper-scrollbar .swiper-scrollbar-drag {
     background-color: #C8A063;
 }
-#scroll{
+
+#scroll {
     position: absolute;
     left: 0;
     top: 0;

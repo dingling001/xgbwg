@@ -33,6 +33,9 @@ body {
 }
 .swiper-container{
     background-color: #42070C;
+    /*background-image: url("../../public/img/wenzibeijing0.png");*/
+    /*background-size: 100% auto;*/
+    /*background-repeat: no-repeat;*/
 }
 .news_detail {
     padding: .7rem 0 0 0!important;
@@ -60,6 +63,8 @@ body {
     padding: .5rem 1.5rem;
     color: #FFB95F;
     font-size: .26rem;
+    word-break: break-all;
+    text-indent: 2em;
 }
 
 .news_detail .desc /deep/ * {

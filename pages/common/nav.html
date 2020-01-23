@@ -1,9 +1,15 @@
 <!-- 顶部logo、顶部时间天气、左侧菜单 -->
 <div class="commonEle">
     <div class="topleft animated fadeInDown"><img src="../../public/img/page_logo.png"/></div>
-    <!--    <div class="topright">-->
-    <!--        <div class="c1" id="time1"></div>-->
-    <!--    </div>-->
+    <div class="topright animated slideInRight">
+        <span class="c1" id="time1"></span>
+        <ul class="rent_box">
+           <li>已经游览时间</li>
+            <li><span class="rent_time"></span></li>
+        </ul>
+        <span class="temp">22℃</span>
+        <span class="weather_img"><img src="" alt="" id="wea_img"></span>
+    </div>
     <div class="leftnav animated fadeInLeft">
         <ul>
             <li class="sub1">
@@ -113,8 +119,11 @@
         <a class="c1" href="../../index.html"></a> <a class="c2"></a>
     </div>
 </div>
+<script src="../../public/js/common.js"></script>
 <script>
     $(function () {
+        Utils.setLoctime();
+        setWeather()
         // 初始化登录信息
         var api_token = localStorage.getItem("api_token");
         var name = localStorage.getItem("name");
@@ -126,6 +135,9 @@
             $(".mynav ul li.sub5").css('display', 'flex');
             $('.sub21').show()
             $('.leftnav').css({'top': 1.6 + 'rem'})
+            $('.rent_box').show()
+            $('.rent_time').text(localStorage.rent_time);
+            $('.c1').show()
         } else {
             $(".leftnav ul li.sub1 img").attr("src", "../../public/img/bg45.png");
             $(".leftnav ul li.sub1 .p1").text("游客").addClass('nologin');
@@ -146,6 +158,7 @@
         // 菜单跳转
         $(".leftnav ul li").click(function () {
             var i = $(this).index();
+            // alert(i)
             if (i == 0) return;
             var href = $(this).attr("data-href");
             window.location.href = href;
@@ -168,5 +181,34 @@
         $(".logoutEle .center .c2").click(function () {
             $(".logoutEle").hide();
         });
+        // 设置天气
+         function setWeather () {
+            var vm = this;
+            BaseAjax.get({
+                type: "get",
+                url: "https://free-api.heweather.com/s6/weather/forecast",
+                data: {
+                    location: "auto_ip",
+                    key: weatherkey
+                },
+                success: function (rlt) {
+                    if (rlt.HeWeather6[0].status == 'ok') {
+                        console.log(rlt);
+                        var daily_forecast = rlt.HeWeather6[0].daily_forecast[0];
+                        var basic = rlt.HeWeather6[0].basic;
+                        $('.temp').text(daily_forecast.tmp_max+'℃')
+                        $('#wea_img').attr('src',`../../public/img/cloudys/${daily_forecast.cond_code_d}.png`)
+                        // console.log(now)
+                        // vm.tmp_max = daily_forecast.tmp_max;
+                        // vm.tmp_min = daily_forecast.tmp_min;
+                        // vm.cond_code_d = daily_forecast.cond_code_d;
+                        // vm.admin_area = basic.parent_city;
+                    }
+                },
+                error: function (rlt) {
+                    console.log(rlt)
+                }
+            });
+        }
     });
 </script>

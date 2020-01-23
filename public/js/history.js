@@ -3,7 +3,7 @@ var VM = new Vue({
     data: {
         api_token: localStorage.getItem("api_token") || "",
         today: null,
-        list:[],
+        list: [],
         lists: [
             {
                 exhibit_id: 1,
@@ -100,315 +100,315 @@ var VM = new Vue({
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
-            },{
+            }, {
                 exhibit_id: 8,
                 img: "http://192.168.10.158:8856/uploadfiles/resource/20191120/201911201412256154.png",
                 time: "2019-02-15/14:01",
                 title: "测试展品1",
             },
-        //
+            //
         ]
     },
-    created: function() {
+    created: function () {
         var vm = this;
         vm.today = vm.getCurrentDay();
     },
-    mounted: function() {
+    mounted: function () {
         var vm = this;
         vm.getLeftMenu();
         if (vm.api_token) {
@@ -416,8 +416,8 @@ var VM = new Vue({
         }
     },
     filters: {
-        time: function(val) {
-            return val.split("/")[1];
+        time: function (val) {
+            return val.split(" ")[1];
         },
     },
     methods: {
@@ -425,7 +425,7 @@ var VM = new Vue({
         /**
          * @获取当前日期
          */
-        getCurrentDay: function() {
+        getCurrentDay: function () {
             var da = new Date();
             var y = da.getFullYear();
             var m = da.getMonth() + 1;
@@ -437,17 +437,17 @@ var VM = new Vue({
         /**
          * @缩略图
          */
-        toThumbsimg: function(path, width, height, type) {
+        toThumbsimg: function (path, width, height, type) {
             return baseUrl + toThumbsimg(path, width, height, type);
         },
         /**
          * @获取左侧菜单
          */
-        getLeftMenu: function() {
+        getLeftMenu: function () {
             $.ajax({
                 type: "get",
                 url: "../common/nav.html",
-                success: function(rlt) {
+                success: function (rlt) {
                     $(".main").prepend(rlt);
                     $(".leftnav").find(".sub21").addClass("on");
                 }
@@ -456,30 +456,29 @@ var VM = new Vue({
         /**
          * @获取浏览历史列表
          */
-        getList: function() {
+        getList: function () {
             var vm = this;
             $.ajax({
-                url: baseUrl + "/api/my_looked",
+                url: baseUrl + "/api/visit_road",
                 type: "get",
                 data: {
-                    p: "t",
+                    p: "w",
                     api_token: vm.api_token,
-                    language:1,
-                    skip:0,
-                    take:10000
+                    language: 1,
                 },
-                success: function(rlt) {
+                success: function (rlt) {
+                    console.log(rlt)
                     if (rlt.status == 1) {
                         vm.list = rlt.data;
-                        vm.$nextTick(function(){
-                            if(vm.list.length){
+                        vm.$nextTick(function () {
+                            if (vm.list.length) {
                                 Utils.creatScroll();
                             }
                         })
                         // console.log(rlt.data)
                     }
                 },
-                error: function(rlt) {
+                error: function (rlt) {
                     console.log(rlt);
                 }
             });
@@ -487,7 +486,7 @@ var VM = new Vue({
         /**
          * @点击查看详情
          */
-        clkEx: function(i) {
+        clkEx: function (i) {
             var vm = this;
             var id = vm.list[i].exhibit_id;
             window.location.href = "../exhibition/detail.html?id=" + id;

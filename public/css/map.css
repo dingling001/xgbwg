@@ -25,11 +25,10 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    text-align: center;
     /*-webkit-background-clip:text;*/
     /*-webkit-text-fill-color:transparent;*/
     font-size: .36rem;
-    padding: .5rem 0;
+    padding: .5rem  1rem;
     color: #F49D2E;
 }
 
@@ -376,4 +375,7 @@ body {
 
 .swiper_num span {
     font-size: 0.2rem;
+}
+.loginEle .right .c1{
+    padding: 1rem .36rem;
 }

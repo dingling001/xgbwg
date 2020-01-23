@@ -121,11 +121,13 @@ var VM = new Vue({
                 correctLevel: QRCode.CorrectLevel.H
             });
             $.ajax({
-                url: baseUrl + "/api/incr_share",
-                type: "post",
+                url: baseUrl + "/api/do_like",
+                type: "get",
                 data: {
                     p: "t",
-                    exhibit_id: vm.id
+                    exhibit_id: vm.id,
+                    type:3,
+                    api_token: vm.api_token
                 },
                 success: function (rlt) {
                     if (rlt.status == 1) {

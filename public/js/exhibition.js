@@ -11,7 +11,7 @@ var VM = new Vue({
         isLayer: false, //列表弹层
         isLayerDe: false, //详情弹层
         currentIdx: 0,
-        showdata: false
+        showdata: false,
         // 弹层中的展厅列表
         // layerList: [{
         //         exhibit_id: 11,
@@ -26,6 +26,7 @@ var VM = new Vue({
         //         list_img: "../../public/images/icon_youke.png"
         //     },
         // ],
+        index: 0
     },
     created: function () {
         var vm = this;
@@ -107,16 +108,18 @@ var VM = new Vue({
             var mySwiper1 = new Swiper("#mySwiper1", {
                 slidesPerView: 'auto',
                 centeredSlides: true,
+                initialSlide: vm.index,
                 observer: true,
                 observeParents: true,
             });
             var mySwiper2 = new Swiper("#mySwiper2", {
                 slidesPerView: "auto",
                 centeredSlides: true,
+                initialSlide: vm.index,
                 centerInsufficientSlides: true,
                 observer: true,
                 observeParents: true,
-                slideToClickedSlide:true
+                slideToClickedSlide: true
             });
             mySwiper1.controller.control = mySwiper2;
             mySwiper2.controller.control = mySwiper1;
@@ -125,6 +128,10 @@ var VM = new Vue({
         changeRoom: function (i) {
             var vm = this;
             vm.roomi = i;
+            vm.index = 0;
+            vm.$nextTick(function () {
+                vm.initMainSwiper();
+            })
             vm.getList();
         },
         // 点击展品查看详情

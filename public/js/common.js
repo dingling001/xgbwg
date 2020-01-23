@@ -4,7 +4,7 @@
 // var baseUrl = "http://192.168.106.202"; //线上测试平台
 var baseUrl = 'http://192.168.10.158:8856'
 var ls = window.localStorage;
-
+var weatherkey='6fdf9567c86b4752a6a1bb62d5a2bf13'
 var Utils = {
     creatScroll: function () {
         var myscroll = new iScroll("scroll", {

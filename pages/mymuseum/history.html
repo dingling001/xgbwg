@@ -24,9 +24,10 @@
                     <ul>
                         <li v-for="a,i in list"
                             :class="{'fleft':i%16<8,'fright':i%16>=8,'no':i%8==0&&i==list.length-1,'fl_first':i%16<8&&i%8==0,'fr_first':i%16==8}">
-                            <div class="time">{{ a.time | time }}</div>
+                            <img src="../../public/img/weizhi.png" alt="" class="weizhi">
+                            <div class="time">{{ a.add_time | time }}</div>
                             <div class="img" @click.stop="clkEx(i)">
-                                <img :src="a.img"/>
+                                <img :src="a.poi_path"/>
                             </div>
                         </li>
                     </ul>
@@ -68,7 +69,6 @@
 <script src="../../public/lib/vue.min.2.2.2.js"></script>
 <script src="../../public/lib/jquery.min.3.3.1.js"></script>
 <script src="../../public/lib/iscroll.js"></script>
-<script src="../../public/js/toThumbsimg.js"></script>
 <script src="../../public/js/common.js"></script>
 <script src="../../public/js/history.js"></script>
 
